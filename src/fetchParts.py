@@ -40,12 +40,11 @@ API_URL = "https://api.nexar.com/graphql"
 headers = {
     "Content-Type": "application/json",
     "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDc0NjQ3NzUsImV4cCI6MTcwNzU1MTE3NSwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiJlYmE0OWY0NS0yMWVjLTRkNzQtYTMzNS0yYzkwMTU5MGZiY2UiLCJzdWIiOiJFQzg4QTUzQi01MkEyLTRGRTItQjJBNy0zQjJBM0Q4N0JCOTYiLCJhdXRoX3RpbWUiOjE3MDc0NjQ3NDYsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiJjYmQ0ZGZiNC0zMDhkLTQ0YmUtODU4Mi0yNzVmZjEzMWMyNzEiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJySDgvYnYwM3c5UXQ2Tk9EQll1YXZSMGVkNXNrdTRWeXNHR2xyOFNWWXUwPSIsImp0aSI6IjE3M0ZDQUYyRkNFQ0E1QjgwMTdCNjY4NThGM0M2MTAxIiwic2lkIjoiMTFBNEIwQjUxOEQ3MDk1MjhERTNBQTgwRjg2MkI5NjAiLCJpYXQiOjE3MDc0NjQ3NzUsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.Pt2KFB_oUT0wqPcYWVGcv8K1ksoXPtOkF9HL-Dns_hqtuNYRxxp7N9d2FeJBSSjoxFc1I8BK-MOZr3FPc3U8kdK-mUGU5io-os1GJ-DF0P9MNDTChZHjT4uStTvMTyrvlk_1v-6VQXJe3bXXx3MGq1TboTja6Il2n5Ma2Qbb_94yhT8WIRIa_HLHLIS9nHlD_Qx8OAQMryc4nOJ_wxMVzfQtZzlvGJG9RZLrnVpchZt9tpCsMrUT8vEtNaNAREUj6dBP6mDxW9OEk2wPWH6ia5UB-yAwhuW2ozmM35j2x3WqDLWabURWN0hm82NXKxiDWekIWfXAe6m9NjQf3ki8XQ"
-    # Use your actual Bearer token here
 }
 
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-filename = f"./results_{timestamp}.json"
-log_filename = f"./log_{timestamp}.txt"
+filename = f"./output/results_{timestamp}.json"
+log_filename = f"./output/log_{timestamp}.txt"
 
 # Write initial empty array to file
 with open(filename, "w") as file:
