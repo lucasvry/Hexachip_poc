@@ -1,0 +1,247 @@
+[
+  {
+    "part": {
+      "mpn": "STM32F765NIH6",
+      "sellers": [
+        {
+          "seller": "STMicroelectronics - SHANE TEST",
+          "unitPrice": 21.27,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "15 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MK10DX128VLQ10",
+      "sellers": [
+        {
+          "seller": "Flip Electronics",
+          "unitPrice": 12.5,
+          "stock": 40,
+          "isActive": "Active",
+          "leadTime": "Will ship in approximately 2 days from Flip Electronics."
+        },
+        {
+          "seller": "NXP USA Inc.",
+          "unitPrice": 13.54,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "26 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "0818111",
+      "sellers": [
+        {
+          "seller": "Phoenix Contact",
+          "unitPrice": 16.1,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "8 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BTS432E2E3062ABUMA1",
+      "sellers": [
+        {
+          "seller": "Infineon Technologies",
+          "unitPrice": 0.0,
+          "stock": 0,
+          "isActive": "Obsolete",
+          "leadTime": "No lead time information available"
+        },
+        {
+          "seller": "Infineon Technologies",
+          "unitPrice": 0.0,
+          "stock": 0,
+          "isActive": "Obsolete",
+          "leadTime": "No lead time information available"
+        },
+        {
+          "seller": "Infineon Technologies",
+          "unitPrice": 0.0,
+          "stock": 0,
+          "isActive": "Obsolete",
+          "leadTime": "No lead time information available"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BG96MA-128-SGN",
+      "sellers": [
+        {
+          "seller": "Quectel",
+          "unitPrice": 30.88752,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": ""
+        },
+        {
+          "seller": "Quectel",
+          "unitPrice": 40.82,
+          "stock": 43,
+          "isActive": "Active",
+          "leadTime": ""
+        },
+        {
+          "seller": "Quectel",
+          "unitPrice": 40.82,
+          "stock": 43,
+          "isActive": "Active",
+          "leadTime": ""
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "DSPIC33EV256GM102-I/MM",
+      "sellers": [
+        {
+          "seller": "Microchip Technology",
+          "unitPrice": 4.88,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "6 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "XPC250300S-02",
+      "sellers": [
+        {
+          "seller": "Lantronix, Inc.",
+          "unitPrice": 43.34,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "20 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "1734346-1",
+      "sellers": [
+        {
+          "seller": "TE Connectivity AMP Connectors",
+          "unitPrice": 2.18,
+          "stock": 11186,
+          "isActive": "Active",
+          "leadTime": "23 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "EPG.1B.304.HLN",
+      "sellers": [
+        {
+          "seller": "LEMO",
+          "unitPrice": 51.12,
+          "stock": 104,
+          "isActive": "Active",
+          "leadTime": "18 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BQ25306RTER",
+      "sellers": [
+        {
+          "seller": "Texas Instruments",
+          "unitPrice": 1.02263,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "6 week(s)"
+        },
+        {
+          "seller": "Texas Instruments",
+          "unitPrice": 2.23,
+          "stock": 1161,
+          "isActive": "Active",
+          "leadTime": "6 week(s)"
+        },
+        {
+          "seller": "Texas Instruments",
+          "unitPrice": 2.23,
+          "stock": 1161,
+          "isActive": "Active",
+          "leadTime": "6 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "ADuM4160BRWZ",
+      "sellers": [
+        {
+          "seller": "Analog Devices Inc.",
+          "unitPrice": 13.24,
+          "stock": 5238,
+          "isActive": "Active",
+          "leadTime": "7 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LT3750EMS#TRPBF",
+      "sellers": [
+        {
+          "seller": "Analog Devices Inc.",
+          "unitPrice": 5.50147,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "26 week(s)"
+        },
+        {
+          "seller": "Analog Devices Inc.",
+          "unitPrice": 10.07,
+          "stock": 1105,
+          "isActive": "Active",
+          "leadTime": "26 week(s)"
+        },
+        {
+          "seller": "Analog Devices Inc.",
+          "unitPrice": 10.07,
+          "stock": 1105,
+          "isActive": "Active",
+          "leadTime": "26 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MAX11254ATJ+",
+      "sellers": [
+        {
+          "seller": "Analog Devices Inc./Maxim Integrated",
+          "unitPrice": 12.13,
+          "stock": 0,
+          "isActive": "Active",
+          "leadTime": "19 week(s)"
+        }
+      ]
+    }
+  }
+]

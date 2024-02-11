@@ -1,0 +1,5282 @@
+[
+  {
+    "part": {
+      "mpn": "STM32F765NIH6",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MK10DX128VLQ10",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "AG9924M",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "0818111",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BTS432E2E3062ABUMA1",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BG96MA-128-SGN",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "DSPIC33EV256GM102-I/MM",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "XPC250300S-02",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "1734346-1",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "EPG.1B.304.HLN",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BNX028-01",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "BQ25306RTER",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "ADuM4160BRWZ",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LT3750EMS#TRPBF",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MAX11254ATJ+",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "25AA256-I/SN",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "NUCLEO-F303K8",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LD1117S33TR",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MAX6070AAUT21+T",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "1-1634200-7",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "ISR3SAD200",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "AMDLA4010S-2R2MT",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "SIR876ADP-T1-GE3",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "DA2034-ALD",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LPS103-M",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "S1227-66BR",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "ODROID-C2",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "7448060814",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LP2985-50DBVR",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "STM32F302C8T6TR",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "OWA-60E-24",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "3210237",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "FTSH-105-05-F-DV-P-TR",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MCP7940NT-I/SN",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "PIC16F88-E/SO",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "PIC16F88-I/SO",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "RS-15-12",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "PMEG2005EH",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "Radxa Pi Zero SBC",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "ORG1510-MK05-TR2",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LQW15AN9N1H00D",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "MAX17205G+00E",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "NC4FDM3-H-BAG",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "CR95HF-VMD5T",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "SIM868",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "LM5122MHX/NOPB",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "STGIF7CH60TS-L",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  },
+  {
+    "part": {
+      "mpn": "STM32F303VCT6",
+      "sellers": [
+        {
+          "unitPrice": 0.11425,
+          "offers": [
+            {
+              "price": 342.75,
+              "quantity": 3000
+            },
+            {
+              "price": 642.66,
+              "quantity": 6000
+            },
+            {
+              "price": 1499.55,
+              "quantity": 15000
+            }
+          ],
+          "stock": 147000,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        },
+        {
+          "unitPrice": 0.25,
+          "offers": [
+            {
+              "price": 0.25,
+              "quantity": 1
+            },
+            {
+              "price": 1.21,
+              "quantity": 5
+            },
+            {
+              "price": 2.32,
+              "quantity": 10
+            },
+            {
+              "price": 10.35,
+              "quantity": 50
+            },
+            {
+              "price": 19.28,
+              "quantity": 100
+            },
+            {
+              "price": 42.84,
+              "quantity": 250
+            },
+            {
+              "price": 71.41,
+              "quantity": 500
+            },
+            {
+              "price": 135.67,
+              "quantity": 1000
+            }
+          ],
+          "stock": 171565,
+          "isActive": "Active",
+          "isObsolete": false,
+          "leadTime": "14 week(s)"
+        }
+      ]
+    }
+  }
+]

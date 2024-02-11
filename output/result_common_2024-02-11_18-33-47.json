@@ -1,0 +1,242 @@
+[
+  {
+    "mpn": "STM32F765NIH6",
+    "octopart_price": 15.1609,
+    "digikey_price": 21.27
+  },
+  {
+    "mpn": "MK10DX128VLQ10",
+    "octopart_price": 8.32,
+    "digikey_price": 13.54
+  },
+  {
+    "mpn": "AG9924M",
+    "octopart_price": 8.46,
+    "digikey_price": null
+  },
+  {
+    "mpn": "0818111",
+    "octopart_price": 10.42,
+    "digikey_price": 14.49
+  },
+  {
+    "mpn": "BTS432E2E3062ABUMA1",
+    "octopart_price": 1.89,
+    "digikey_price": null
+  },
+  {
+    "mpn": "BG96MA-128-SGN",
+    "octopart_price": 31.32876,
+    "digikey_price": 30.88752
+  },
+  {
+    "mpn": "DSPIC33EV256GM102-I/MM",
+    "octopart_price": 4.165,
+    "digikey_price": 4.88
+  },
+  {
+    "mpn": "XPC250300S-02",
+    "octopart_price": 43.77,
+    "digikey_price": 43.34
+  },
+  {
+    "mpn": "1734346-1",
+    "octopart_price": 1.17,
+    "digikey_price": 2.18
+  },
+  {
+    "mpn": "EPG.1B.304.HLN",
+    "octopart_price": 40.78,
+    "digikey_price": 51.12
+  },
+  {
+    "mpn": "BNX028-01",
+    "octopart_price": 3.199,
+    "digikey_price": null
+  },
+  {
+    "mpn": "BQ25306RTER",
+    "octopart_price": 1.06,
+    "digikey_price": 1.02263
+  },
+  {
+    "mpn": "ADuM4160BRWZ",
+    "octopart_price": 9.13,
+    "digikey_price": 13.24
+  },
+  {
+    "mpn": "LT3750EMS#TRPBF",
+    "octopart_price": 5.7665299999999995,
+    "digikey_price": 5.50147
+  },
+  {
+    "mpn": "MAX11254ATJ+",
+    "octopart_price": 8.55,
+    "digikey_price": 12.13
+  },
+  {
+    "mpn": "25AA256-I/SN",
+    "octopart_price": 1.41125,
+    "digikey_price": 1.5
+  },
+  {
+    "mpn": "NUCLEO-F303K8",
+    "octopart_price": 11.653500000000001,
+    "digikey_price": 10.99
+  },
+  {
+    "mpn": "LD1117S33TR",
+    "octopart_price": 0.181,
+    "digikey_price": 0.15577
+  },
+  {
+    "mpn": "MAX6070AAUT21+T",
+    "octopart_price": 2.31,
+    "digikey_price": 2.18958
+  },
+  {
+    "mpn": "1-1634200-7",
+    "octopart_price": 3.525,
+    "digikey_price": null
+  },
+  {
+    "mpn": "ISR3SAD200",
+    "octopart_price": 8.415849999999999,
+    "digikey_price": 17.53
+  },
+  {
+    "mpn": "AMDLA4010S-2R2MT",
+    "octopart_price": 0.3456,
+    "digikey_price": 0.3131
+  },
+  {
+    "mpn": "SIR876ADP-T1-GE3",
+    "octopart_price": 0.78528,
+    "digikey_price": 0.72538
+  },
+  {
+    "mpn": "DA2034-ALD",
+    "octopart_price": 3.6850000000000005,
+    "digikey_price": null
+  },
+  {
+    "mpn": "LPS103-M",
+    "octopart_price": 70.03,
+    "digikey_price": 85.05
+  },
+  {
+    "mpn": "S1227-66BR",
+    "octopart_price": null,
+    "digikey_price": null
+  },
+  {
+    "mpn": "ODROID-C2",
+    "octopart_price": null,
+    "digikey_price": null
+  },
+  {
+    "mpn": "7448060814",
+    "octopart_price": 21.49008,
+    "digikey_price": 25.8
+  },
+  {
+    "mpn": "LP2985-50DBVR",
+    "octopart_price": 0.21015,
+    "digikey_price": 0.19577
+  },
+  {
+    "mpn": "STM32F302C8T6TR",
+    "octopart_price": null,
+    "digikey_price": null
+  },
+  {
+    "mpn": "OWA-60E-24",
+    "octopart_price": 26.9,
+    "digikey_price": 34.62
+  },
+  {
+    "mpn": "3210237",
+    "octopart_price": 5.51,
+    "digikey_price": 7.72
+  },
+  {
+    "mpn": "FTSH-105-05-F-DV-P-TR",
+    "octopart_price": 1.19,
+    "digikey_price": 1.9796
+  },
+  {
+    "mpn": "MCP7940NT-I/SN",
+    "octopart_price": 0.751,
+    "digikey_price": 0.76
+  },
+  {
+    "mpn": "PIC16F88-E/SO",
+    "octopart_price": 5.18,
+    "digikey_price": 5.31
+  },
+  {
+    "mpn": "PIC16F88-I/SO",
+    "octopart_price": 4.19,
+    "digikey_price": 4.2
+  },
+  {
+    "mpn": "RS-15-12",
+    "octopart_price": 7.795,
+    "digikey_price": 10.86
+  },
+  {
+    "mpn": "PMEG2005EH",
+    "octopart_price": 0.08577,
+    "digikey_price": null
+  },
+  {
+    "mpn": "Radxa Pi Zero SBC",
+    "octopart_price": null,
+    "digikey_price": null
+  },
+  {
+    "mpn": "ORG1510-MK05-TR2",
+    "octopart_price": 16.74,
+    "digikey_price": null
+  },
+  {
+    "mpn": "LQW15AN9N1H00D",
+    "octopart_price": 0.0473,
+    "digikey_price": 0.05029
+  },
+  {
+    "mpn": "MAX17205G+00E",
+    "octopart_price": 2.63004,
+    "digikey_price": 4.98
+  },
+  {
+    "mpn": "NC4FDM3-H-BAG",
+    "octopart_price": 11.260000000000002,
+    "digikey_price": null
+  },
+  {
+    "mpn": "CR95HF-VMD5T",
+    "octopart_price": 1.957565,
+    "digikey_price": 1.95047
+  },
+  {
+    "mpn": "SIM868",
+    "octopart_price": 18,
+    "digikey_price": null
+  },
+  {
+    "mpn": "LM5122MHX/NOPB",
+    "octopart_price": 2.46319,
+    "digikey_price": 2.34003
+  },
+  {
+    "mpn": "STGIF7CH60TS-L",
+    "octopart_price": 8.58157,
+    "digikey_price": 13.14
+  },
+  {
+    "mpn": "STM32F303VCT6",
+    "octopart_price": 5.5629349999999995,
+    "digikey_price": 9.48
+  }
+]
