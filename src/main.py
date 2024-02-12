@@ -1,11 +1,11 @@
 import json
-import os
 import tkinter as tk
 from datetime import datetime
 from tkinter import filedialog, ttk
 import pandas as pd
 
-from src.services.SearchEngineService import SearchEngineService
+from src.test import test
+from src.utils.formule import calculer_prix_vente_estime
 
 
 class ProductSection(tk.Frame):
@@ -52,12 +52,18 @@ class Application(tk.Frame):
         self._create_gui()
         self.pack()
 
+
+    # Exemple d'utilisation avec les valeurs fournies
+    components = test.components
+
     def _create_gui(self):
         self.sections = [
             ("En production", [50, 30, 20]),
             ("NRND", [65, 20, 15]),
             ("Obsolete", [100, 0, 0])
         ]
+
+
 
         # Bouton import fichier excel
         tk.Button(self, text="Importer un fichier CSV", command=self.importer_fichier).grid(column=0, row=0, pady=20)
@@ -68,10 +74,12 @@ class Application(tk.Frame):
         # Sections
         for i, (title, default_values) in enumerate(self.sections):
             section = ProductSection(self, title, default_values)
-            section.grid(column=i * 2, row=1)
+            section.grid(column=i * 2 , row=1)
+
+
 
         # Bouton génération des prix
-        tk.Button(self, text="Générer les prix", command=self.affichage).grid(column=0, row=5, columnspan=8, pady=20)
+        tk.Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=5, columnspan=8, pady=20)
 
     def importer_fichier(self):
         # Ouvrir une fenêtre de dialogue pour choisir le fichier
@@ -80,24 +88,73 @@ class Application(tk.Frame):
         if fichier:
             self.file_path = fichier
             self.filePathLabel.config(text=self.file_path)
-            df = pd.read_excel(fichier)
-            print(df)
+            self.import_excel = pd.read_excel(fichier)
+            mpn = self.get_mpn()
+            print(mpn)
+
+
+    def get_mpn(self):
+        # Sélectionner les colonnes spécifiées dans la variable result
+        columns_to_select = ["MPN"]
+        result = self.import_excel[columns_to_select]
+        flat_list = []
+        for sublist in result.values:
+            flat_list.extend(sublist)
+
+        return flat_list
+
 
     def affichage(self):
         print('--------------------')
         for i, (title, default_values) in enumerate(self.sections):
-            print(title, default_values)
+            print(title,default_values)
+
+    def export_to_pdf(self):
+        total_components = len(self.components)
+        ids = []
+        prices = []
+        market_prices = []
+        pourcentages = []
+
+        for index, component in enumerate(self.components, start=1):
+            prix_estime = calculer_prix_vente_estime(component)
+
+            ids.append(component.id)
+            prices.append(prix_estime)
+            market_prices.append(component.prix_moyen_marche)
+            pourcentages.append(f"{(prix_estime - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+
+            print("------------------------------------------------------")
+            print(f"Traitement du composant {index}/{total_components}")
+
+        data = {'REFS': ids,
+                'PRIX ESTIMES': prices,
+                'PRIX MARCHE': market_prices,
+                'POURCENTAGES': pourcentages
+                }
+
+        df = pd.DataFrame(data)
+
+        folder_selected = filedialog.askdirectory()
+
+        if folder_selected:
+            file_path = f'{folder_selected}/export_prices.xlsx'
+            df.to_excel(file_path, index=False)
+            print(f'Fichier enregistré avec succès à : {file_path}')
+        else:
+            print('Aucun dossier sélectionné. Annulation de l\'enregistrement.')
+
 
 
 def main():
-    """
     app = tk.Tk()
-    app.geometry("900x300")  # You want the size of the app to be 500x500
-    app.resizable(0, 0)  # Don't allow resizing in the x or y direction    app.iconbitmap(".venv/assets/logo.png")
-    app.title("Demo Widgets")
+    app.geometry("900x500")
+    app.resizable(0, 0)
+    app.title("Hexachip Simulation")
     Application(app)
     app.mainloop()
-    """
+
+"""
     mpn_ids = [
         "STM32F765NIH6",
         "MK10DX128VLQ10",
@@ -158,6 +215,6 @@ def main():
         search_engine_service = SearchEngineService()
         search_engine_service.search_price_by_mpn(mpn=mpn, filename=filename)
 
-
+"""
 if __name__ == "__main__":
     main()
