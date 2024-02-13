@@ -19,7 +19,6 @@ class ProductSection(Frame):
         self.title = title
         self.default_values = default_values
         self._create_gui()
-        print(self.default_values)
 
     def _create_gui(self):
         label = Label(self, text=self.title.name)
@@ -35,7 +34,6 @@ class ProductSection(Frame):
     def _create_label_and_entry(self, label_text, row):
         label = Label(self, text=label_text)
         label.grid(column=0, row=row, pady=5)
-        print(self.default_values[row - 2])
         var = IntVar(value=self.default_values[row - 2])
         champ = Entry(self, textvariable=var, validate="key")
         champ.grid(column=1, row=row, padx=15, pady=5)
@@ -120,6 +118,8 @@ class Application(Frame):
             self.import_excel = pd.read_excel(fichier)
             date_code = self.get_date_code()
             self.mpn_ids = self.get_mpn_ids()
+            quantites = self.get_quantity()
+            print(quantites)
 
     def ouvrir_excel(self):
         try:
@@ -146,6 +146,16 @@ class Application(Frame):
         for sublist in result.values:
             flat_list.append(self.transformer_chaine(sublist[0]))
         return flat_list
+
+    def get_quantity(self):
+        # Sélectionner les colonnes spécifiées dans la variable result
+        columns_to_select = ["QUANTITY"]
+        result = self.import_excel[columns_to_select]
+        flat_list = []
+        for sublist in result.values:
+            flat_list.append(self.transformer_chaine(sublist[0]))
+        return flat_list
+
 
     def transformer_chaine(self, chaine, chaine_origine=None):
         chaine = str(chaine)
