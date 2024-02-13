@@ -88,7 +88,7 @@ def calculer_prix_vente_estime(component: Component, coefficients: list[[str, li
     variation_stock = component.variation_stock
     annee_achat = component.annee_achat
 
-    coefficients_choisis = recuperer_liste_par_str(coefficients, etat_fabrication)
+    coefficients_choisis = recuperer_liste_par_str(coefficients, etat_fabrication.name)
 
     match etat_fabrication:
         case (State.FABRICATION):
