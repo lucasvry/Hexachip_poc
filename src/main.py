@@ -236,6 +236,10 @@ class Application(Frame):
         else:
             print('Aucun dossier sélectionné. Annulation de l\'enregistrement.')
 
+        output_directory = "./output"
+        if not os.path.exists(output_directory):
+            os.makedirs(output_directory)
+
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = f"./output/result_common_{timestamp}.json"
         with open(filename, "w") as file:
