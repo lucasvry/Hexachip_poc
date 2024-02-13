@@ -1,11 +1,11 @@
 import json
+import os
 import tkinter as tk
 from datetime import datetime
 from tkinter import filedialog, ttk
 import pandas as pd
 
-from src.test import test
-from src.utils.formule import calculer_prix_vente_estime
+from services.SearchEngineService import SearchEngineService
 
 
 class ProductSection(tk.Frame):
@@ -51,10 +51,13 @@ class Application(tk.Frame):
         super().__init__(root)
         self._create_gui()
         self.pack()
+        self.mpn_ids = []
+        self.search_engine_service = SearchEngineService()
+        os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
+        os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
+        os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
+        os.environ['DIGIKEY_STORAGE_PATH'] = "./cache"
 
-
-    # Exemple d'utilisation avec les valeurs fournies
-    components = test.components
 
     def _create_gui(self):
         self.sections = [
@@ -66,7 +69,7 @@ class Application(tk.Frame):
 
 
         # Bouton import fichier excel
-        tk.Button(self, text="Importer un fichier CSV", command=self.importer_fichier).grid(column=0, row=0, pady=20)
+        tk.Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
 
         self.filePathLabel = tk.Label(self, text="Aucun fichier sélectionné")
         self.filePathLabel.grid(column=1, row=0, columnspan=6, pady=20)
@@ -81,7 +84,7 @@ class Application(tk.Frame):
         # Bouton génération des prix
         tk.Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=5, columnspan=8, pady=20)
 
-    def importer_fichier(self):
+    def import_file(self):
         # Ouvrir une fenêtre de dialogue pour choisir le fichier
         fichier = filedialog.askopenfilename(filetypes=[("Excel files", ".xlsx .xls .csv")])
 
@@ -89,12 +92,10 @@ class Application(tk.Frame):
             self.file_path = fichier
             self.filePathLabel.config(text=self.file_path)
             self.import_excel = pd.read_excel(fichier)
-            mpn = self.get_mpn()
-            print(mpn)
+            self.mpn_ids = self.get_mpn_ids()
 
 
-    def get_mpn(self):
-        # Sélectionner les colonnes spécifiées dans la variable result
+    def get_mpn_ids(self):
         columns_to_select = ["MPN"]
         result = self.import_excel[columns_to_select]
         flat_list = []
@@ -110,23 +111,31 @@ class Application(tk.Frame):
             print(title,default_values)
 
     def export_to_pdf(self):
-        total_components = len(self.components)
+        # total_components = len(self.components)
         ids = []
         prices = []
         market_prices = []
         pourcentages = []
 
-        for index, component in enumerate(self.components, start=1):
-            prix_estime = calculer_prix_vente_estime(component)
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        filename = f"../output/result_common_{timestamp}.json"
+        with open(filename, "w") as file:
+            json.dump([], file)
+
+        for mpn in self.mpn_ids:
+            result = self.search_engine_service.search_by_mpn(mpn=mpn, filename=filename)
+            print(result)
+            """
+            estimated_price = calculer_prix_vente_estime(result)
 
             ids.append(component.id)
-            prices.append(prix_estime)
+            prices.append(estimated_price)
             market_prices.append(component.prix_moyen_marche)
-            pourcentages.append(f"{(prix_estime - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+            pourcentages.append(f"{(estimated_price - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
 
             print("------------------------------------------------------")
             print(f"Traitement du composant {index}/{total_components}")
-
+            """
         data = {'REFS': ids,
                 'PRIX ESTIMES': prices,
                 'PRIX MARCHE': market_prices,
@@ -148,7 +157,7 @@ class Application(tk.Frame):
 
 def main():
     app = tk.Tk()
-    app.geometry("900x500")
+    app.geometry("1100x300")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
