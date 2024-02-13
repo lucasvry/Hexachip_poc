@@ -1,7 +1,7 @@
 import json
 import os
 from tkinter import *
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from tkinter.ttk import *
 from datetime import datetime
 import re
@@ -122,38 +122,46 @@ class Application(Frame):
 
     def ouvrir_excel(self):
         try:
-            # Ouvrir le fichier Excel avec l'application par défaut
             os.system(f"start excel {self.file_path_export}")
         except Exception as e:
-            print(f"Erreur lors de l'ouverture du fichier : {e}")
+            messagebox.showerror("EXCEL",f"Erreur lors de l'ouverture du fichier : {self.file_path_export}")
 
     def get_mpn_ids(self):
-        # Sélectionner les colonnes spécifiées dans la variable result
-        columns_to_select = ["MPN"]
-        result = self.import_excel[columns_to_select]
-        flat_list = []
-        for sublist in result.values:
-            flat_list.extend(sublist)
+        try:
+            # Sélectionner les colonnes spécifiées dans la variable result
+            columns_to_select = ["MPN"]
+            result = self.import_excel[columns_to_select]
+            flat_list = []
+            for sublist in result.values:
+                flat_list.extend(sublist)
 
-        return flat_list
+            return flat_list
+        except Exception:
+            messagebox.showerror('IDS',"La colonne des réf doit être nommée 'MPN'")
 
     def get_date_code(self):
-        # Sélectionner les colonnes spécifiées dans la variable result
-        columns_to_select = ["DATE_CODE"]
-        result = self.import_excel[columns_to_select]
-        flat_list = []
-        for sublist in result.values:
-            flat_list.append(self.transformer_chaine(sublist[0]))
-        return flat_list
+        try:
+            # Sélectionner les colonnes spécifiées dans la variable result
+            columns_to_select = ["DATE_CODE"]
+            result = self.import_excel[columns_to_select]
+            flat_list = []
+            for sublist in result.values:
+                flat_list.append(self.transformer_chaine(sublist[0]))
+            return flat_list
+        except Exception:
+            messagebox.showerror('DATE_CODE', "La colonne des dates doit être nommée 'DATE_CODE'")
 
     def get_quantity(self):
-        # Sélectionner les colonnes spécifiées dans la variable result
-        columns_to_select = ["QUANTITY"]
-        result = self.import_excel[columns_to_select]
-        flat_list = []
-        for sublist in result.values:
-            flat_list.append(self.transformer_chaine(sublist[0]))
-        return flat_list
+        try:
+            # Sélectionner les colonnes spécifiées dans la variable result
+            columns_to_select = ["QUANTITY"]
+            result = self.import_excel[columns_to_select]
+            flat_list = []
+            for sublist in result.values:
+                flat_list.append(self.transformer_chaine(sublist[0]))
+            return flat_list
+        except Exception:
+            messagebox.showerror('QUANTITY', "La colonne des quantités doit être nommée 'QUANTITY'")
 
 
     def transformer_chaine(self, chaine, chaine_origine=None):
