@@ -15,13 +15,25 @@ class SearchMpnResult:
         self.market_price = market_price
         self.stock = stock
 
+    def __str__(self):
+        return f"{{mpn: {self.mpn}, market_price: {self.market_price}, is_obsolete: {self.is_obsolete}, stock: {self.stock}}}"
+
+    def to_json(self):
+        return {
+            "mpn": self.mpn,
+            "market_price": self.market_price,
+            "is_obsolete": self.is_obsolete,
+            "stock": self.stock
+        }
+
 
 class SearchEngineService:
     def __init__(self):
         os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
         os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
         os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
-        os.environ['DIGIKEY_STORAGE_PATH'] = "../cache"
+        os.environ['DIGIKEY_STORAGE_PATH'] = "./cache"
+
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.DEBUG)
 
@@ -33,58 +45,82 @@ class SearchEngineService:
         logger.addHandler(handler)
         digikey_logger.addHandler(handler)
 
-
-    def search_by_mpn(self, mpn, filename) -> SearchMpnResult:
+    def search_by_mpn(self, mpn) -> SearchMpnResult:
         octopart_result = self.search_by_mpn_octopart(mpn)
         digikey_result = self.search_by_mpn_digikey(mpn)
 
         print(
-            f"For mpn: {mpn}, octopart: {octopart_result}, digikey: {octopart_result}")
+            f"For mpn: {mpn},\n - octopart: {octopart_result},\n - digikey: {digikey_result}")
+
+        if octopart_result is None and digikey_result is None:
+            print("For each digikey and octopart, no result found")
+
+        is_octopart_result = octopart_result is not None and octopart_result.market_price is not None
+        is_digikey_result = digikey_result is not None and digikey_result.market_price is not None
 
         estimate_price = None
-        if octopart_result.market_price is None and digikey_result.market_price is not None:
-            estimate_price = digikey_result.market_price
-        if digikey_result.market_price is None and octopart_result.market_price is not None:
+        is_obsolete = None
+        stock = None
+        # Case where only octopart has a result
+        if is_octopart_result and not is_digikey_result:
             estimate_price = octopart_result.market_price
-        if octopart_result.market_price is not None and digikey_result.market_price is not None:
+            is_obsolete = octopart_result.is_obsolete
+            stock = octopart_result.stock
+        # Case where only digikey has a result
+        if not is_octopart_result and is_digikey_result:
+            estimate_price = digikey_result.market_price
+            is_obsolete = digikey_result.is_obsolete
+            stock = digikey_result.stock
+        # Case where both octopart and digikey has a result
+        if is_octopart_result and is_digikey_result:
             estimate_price = min(octopart_result.market_price, digikey_result.market_price)
-
-        is_obsolete = octopart_result.is_obsolete and digikey_result.is_obsolete
-        stock = (digikey_result.stock + octopart_result.stock) // 2
+            is_obsolete = octopart_result.is_obsolete and digikey_result.is_obsolete
+            if digikey_result.stock <= 0:
+                # If no stock from digikey, using octopart stock
+                stock = octopart_result.stock
+            elif octopart_result.stock <= 0:
+                # If no stock from octopart but in some in digikey, using digikey stock
+                stock = digikey_result.stock
+            else:
+                # If stock in both, using the average
+                stock = (digikey_result.stock + octopart_result.stock) // 2
 
         return SearchMpnResult(mpn=mpn, market_price=estimate_price, is_obsolete=is_obsolete, stock=stock)
 
-
     def search_by_mpn_digikey(self, mpn) -> Optional[SearchMpnResult]:
-        print("searching by mpn for digikey : ", mpn)
+        os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
+        os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
+        os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
+        os.environ['DIGIKEY_STORAGE_PATH'] = "./cache"
+        try:
+            batch_request = ManufacturerProductDetailsRequest(manufacturer_product=mpn, record_count=1,
+                                                              record_start_position=0,
+                                                              requested_quantity=1,
+                                                              sort={"SortOption": "SortByDigiKeyPartNumber",
+                                                                    "Direction": "Ascending", "SortParameterId": 0},
+                                                              search_options=["ManufacturerPartSearch"])
+            data_dict = digikey.manufacturer_product_details(body=batch_request).to_dict()
+            results = data_dict.get("product_details")
+            if results is None or (results is not None and len(results) <= 0):
+                # print(f"No results for partId {mpn}")
+                return None
 
-        batch_request = ManufacturerProductDetailsRequest(manufacturer_product=mpn, record_count=1,
-                                                          record_start_position=0,
-                                                          sort={"SortOption": "SortByDigiKeyPartNumber",
-                                                                "Direction": "Ascending", "SortParameterId": 0},
-                                                          requested_quantity=1,
-                                                          search_options=["ManufacturerPartSearch"])
-        data_dict = digikey.manufacturer_product_details(body=batch_request).to_dict()
-        results = data_dict.get("product_details")
+            unit_price = results[0].get("unit_price", 0)
+            is_obsolete = results[0].get("obsolete", False)
+            quantity_available = results[0].get("quantity_available", 0)
 
-        if results is None or len(results) <= 0:
-            print(f"No results for partId {mpn}")
+            if unit_price <= 0 and quantity_available <= 0:
+                # print(f"No results for partId {mpn}")
+                return None
+
+            return SearchMpnResult(mpn=mpn, market_price=unit_price, is_obsolete=is_obsolete, stock=quantity_available)
+        except Exception as e:
+            print(f"Error while fetching data from digikey for partId {mpn}: {e}")
             return None
-
-        unit_price = results[0].get("unit_price", 0)
-        is_obsolete = results[0].get("obsolete", False)
-        quantity_available = results[0].get("quantity_available", 0)
-
-        if unit_price <= 0 and quantity_available <= 0:
-            print(f"No results for partId {mpn}")
-            return None
-
-        return SearchMpnResult(mpn=mpn, market_price=unit_price, is_obsolete=is_obsolete, stock=quantity_available)
-
 
     def search_by_mpn_octopart(self, mpn) -> Optional[SearchMpnResult]:
-        print("searching by mpn for octopart : ", mpn)
-        BEARER_TOKEN_OCTOPART = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDc2NjczODgsImV4cCI6MTcwNzc1Mzc4OCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiIwMGI1MjJiYS1iNTA1LTQxYzEtOGJhOC02ZDljYzgyNDQ1NWEiLCJzdWIiOiJGODY3NzFGQS00Qjg0LTRDNDEtOUNFMi1GQUQwQjM5QTEyOUEiLCJhdXRoX3RpbWUiOjE3MDc2NjczNTgsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiIyZmQ5NmMzZS05NDhlLTQ1YTUtYmRlNC00NDE3NjczZjc2MjYiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJYNTVJbVBSVGk3c1kwN1o3SThub24wbHBUbWttbnVmYjF0MEMrQ2lqWWxnPSIsImp0aSI6IjgwNjREQzcxRTJDQzhGRDhFQUIzQTRBNERGOTgwMjUxIiwic2lkIjoiMTUwMDlBODg1M0ZEN0FENDQwNDFFODRGMDMzQTY3QjUiLCJpYXQiOjE3MDc2NjczODgsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.k42iQUnww3B6n444KSY2hWzjS40seLDdHDoQ7e8njWHBaRHAMb7CkhiHxbkLhCD3VIGZBYPGjrqmGnpvkNgvV1VAcrPNRRZharQRtQxLQNie1VzAJBDOBAeFtYZquL09PaVjJ6Unh471Aguri4N_5YnNYnrwbWn9iCN_suIlo3HxYiYOZPKMqZzKrJ6xXIoVbXMyCjomlEbWe-yfNuoKHjdXpkm-V5olg1-5P9CXxhpw1PTvomyuRm4MUBIu9you75aJRnwBxrMsE1XLlo0LCozwPITMiXa_agKRHWl8FZ-L8czf3xaBUecvw4qCY6q19qWXd1PFpuz2ZP50cfg4YA"
+        # print("searching by mpn for octopart : ", mpn)
+        BEARER_TOKEN_OCTOPART = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDc4MjY0ODYsImV4cCI6MTcwNzkxMjg4NiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiIwMGI1MjJiYS1iNTA1LTQxYzEtOGJhOC02ZDljYzgyNDQ1NWEiLCJzdWIiOiJGODY3NzFGQS00Qjg0LTRDNDEtOUNFMi1GQUQwQjM5QTEyOUEiLCJhdXRoX3RpbWUiOjE3MDc4MjYzNzAsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiI3ZGQwMWMxNi1hNzQ4LTQ0MWEtOGFiYS1kY2FiZjE4MzZjZjIiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJRQUdiNXZKV3RrdUltcVlVYm9NRy9mNmFzSDROaDM2cG0rUmtmeFVKZDR3PSIsImp0aSI6IjcwRUQ2NkQ5N0ZCQzkyNTRGQkREOTJFMTJDNUJFMzM1Iiwic2lkIjoiODE5NDFCQkJFOTAxRTk5NjQzNzA1MjkxRTEwMTg3QjAiLCJpYXQiOjE3MDc4MjY0ODYsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.KTR0CgB96iMfE54TZEuSTkZtScniGsFUhGJho6KiO2m_t39yPqASCeW4QDmyTB9FyqTXzZM2DwRpz7O18H1YcpOWBxETZ7Am5bQQompWUJYo9E_rvWAdauHA5wc9pkB1tW1blGxZboy1HpGrpMbzvsFpupvQGE8ATjwsumv52VRcmD991riw44SuilbeM4Z5ECDa8Kcbiy8M5V0uFps3XfkrB1HPvl4O0MHyaqh5amrhS0E5E2UOgtqtsFV75GaYtQiyp91pFgOEfV0htPK1VlCijK2rmfLX3AUtlsfIuO4gsz20xJaNtVz_BIlWeBqKKr-wigSywgStFsjz3QlCOg"
         API_URL_OCTOPART = "https://api.nexar.com/graphql"
         HEADERS_OCTOPART = {
             "Content-Type": "application/json",
@@ -129,18 +165,15 @@ class SearchEngineService:
 
             data = response.json()
             results = data.get("data", {}).get("supSearchMpn", {}).get("results", [])
-
-            if results:
+            if results is not None:
                 has_results = len(results) > 0
                 if has_results:
-                    stock = results.get("totalAvail", 0)
+                    stock = results[0].get("part", {}).get("totalAvail", 0)
                     median_price = results[0].get("part", {}).get("medianPrice1000", None)
                     if median_price is not None:
-                        converted_median_price = median_price.get("convertedPrice", None)
-                        print(f"converted_median_price: {converted_median_price}")
-                        print(f"median_price: {median_price}")
-                        if converted_median_price is not None and converted_median_price > 0:
-                            market_price = converted_median_price
+                        if median_price is not float:
+                            median_price = median_price.get("convertedPrice", None)
+                        # print(f"median_price: {median_price}")
 
                         if median_price is not None and median_price > 0:
                             market_price = median_price
@@ -151,10 +184,10 @@ class SearchEngineService:
                     total_converted_price = 0
 
                     if len(sellers_authorized) <= 0:
-                        print("no authorized sellers")
+                        # print("no authorized sellers")
                         is_obsolete = True
                     else:
-                        # We only use authorized sellers
+                        # print("using authorized sellers")
                         sellers = sellers_authorized
 
                     for seller in sellers:
@@ -167,9 +200,10 @@ class SearchEngineService:
                     if number_of_prices > 0:
                         market_price = total_converted_price / number_of_prices
 
-                    return SearchMpnResult(mpn=mpn, market_price=market_price, stock=stock, is_obsolete=is_obsolete)
+                    res = SearchMpnResult(mpn=mpn, market_price=market_price, stock=stock, is_obsolete=is_obsolete)
+                    return res
                 else:
-                    print(f"No results for partId {mpn}")
+                    # print(f"No results for partId {mpn}")
                     return None
             else:
                 print(f"Invalid json for partId {mpn}")

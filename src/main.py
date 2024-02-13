@@ -1,14 +1,15 @@
 import json
 import os
-import tkinter as tk
+from tkinter import *
+from tkinter import filedialog
+from tkinter.ttk import *
 from datetime import datetime
-from tkinter import filedialog, ttk
 import pandas as pd
 
 from services.SearchEngineService import SearchEngineService
 
 
-class ProductSection(tk.Frame):
+class ProductSection(Frame):
     def __init__(self, master, title, default_values):
         super().__init__(master)
         self.title = title
@@ -16,22 +17,22 @@ class ProductSection(tk.Frame):
         self._create_gui()
 
     def _create_gui(self):
-        label = tk.Label(self, text=self.title)
+        label = Label(self, text=self.title)
         label.grid(column=0, row=1, columnspan=2, pady=15)
 
         labels = ["Stock mondial", "Date de fabrication", "Durée de fabrication"]
         for i, label_text in enumerate(labels, start=2):
             self._create_label_and_entry(label_text, i)
 
-        sep = ttk.Separator(self, orient="vertical")
+        sep = Separator(self, orient="vertical")
         sep.grid(column=2, row=1, rowspan=len(labels) + 1, sticky="ns")
 
     def _create_label_and_entry(self, label_text, row):
-        label = tk.Label(self, text=label_text)
+        label = Label(self, text=label_text)
         label.grid(column=0, row=row, pady=5)
 
-        var = tk.IntVar(value=self.default_values[row - 2])
-        champ = tk.Entry(self, textvariable=var, validate="key")
+        var = IntVar(value=self.default_values[row - 2])
+        champ = Entry(self, textvariable=var, validate="key")
         champ.grid(column=1, row=row, padx=15, pady=5)
 
         champ.bind("<KeyRelease>", lambda event: self._validate_entry(event, row - 2, champ))
@@ -42,10 +43,10 @@ class ProductSection(tk.Frame):
             self.default_values[index] = value
         except ValueError:
             champ.bell()
-            champ.delete(0, tk.END)
+            champ.delete(0, END)
 
 
-class Application(tk.Frame):
+class Application(Frame):
 
     def __init__(self, root):
         super().__init__(root)
@@ -69,9 +70,9 @@ class Application(tk.Frame):
 
 
         # Bouton import fichier excel
-        tk.Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
+        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
 
-        self.filePathLabel = tk.Label(self, text="Aucun fichier sélectionné")
+        self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
         self.filePathLabel.grid(column=1, row=0, columnspan=6, pady=20)
 
         # Sections
@@ -82,12 +83,11 @@ class Application(tk.Frame):
 
 
         # Bouton génération des prix
-        tk.Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=5, columnspan=8, pady=20)
+        Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=5, columnspan=8, pady=20)
 
     def import_file(self):
         # Ouvrir une fenêtre de dialogue pour choisir le fichier
         fichier = filedialog.askopenfilename(filetypes=[("Excel files", ".xlsx .xls .csv")])
-
         if fichier:
             self.file_path = fichier
             self.filePathLabel.config(text=self.file_path)
@@ -118,18 +118,22 @@ class Application(tk.Frame):
         pourcentages = []
 
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = f"../output/result_common_{timestamp}.json"
+        filename = f"./output/result_common_{timestamp}.json"
         with open(filename, "w") as file:
             json.dump([], file)
 
         for mpn in self.mpn_ids:
-            result = self.search_engine_service.search_by_mpn(mpn=mpn, filename=filename)
-            print(result)
+            result = self.search_engine_service.search_by_mpn(mpn=mpn)
+            with open(filename, "r+") as file:
+                data = json.load(file)
+                data.append(result.to_json())
+                file.seek(0)
+                json.dump(data, file, indent=4)
             """
             estimated_price = calculer_prix_vente_estime(result)
 
-            ids.append(component.id)
             prices.append(estimated_price)
+            ids.append(component.id)
             market_prices.append(component.prix_moyen_marche)
             pourcentages.append(f"{(estimated_price - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
 
@@ -156,7 +160,7 @@ class Application(tk.Frame):
 
 
 def main():
-    app = tk.Tk()
+    app = Tk()
     app.geometry("1100x300")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
