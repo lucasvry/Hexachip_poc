@@ -1,0 +1,26 @@
+[
+  {
+    "state": "FABRICATION",
+    "values": [
+      50,
+      30,
+      20
+    ]
+  },
+  {
+    "state": "NRND",
+    "values": [
+      65,
+      20,
+      15
+    ]
+  },
+  {
+    "state": "OBSOLETE",
+    "values": [
+      100,
+      0,
+      0
+    ]
+  }
+]

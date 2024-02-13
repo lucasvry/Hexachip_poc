@@ -21,7 +21,7 @@ class ProductSection(Frame):
         self._create_gui()
 
     def _create_gui(self):
-        label = Label(self, text=self.title.name)
+        label = Label(self, text=self.title)
         label.grid(column=0, row=1, columnspan=2, pady=15)
 
         labels = ["Stock mondial", "Variation du stock", "Date de fabrication"]
@@ -68,11 +68,9 @@ class Application(Frame):
     components = test.components
 
     def _create_gui(self):
-        self.sections = [
-            (State.FABRICATION, [50, 30, 20]),
-            (State.NRND, [65, 20, 15]),
-            (State.OBSOLETE, [100, 0, 0])
-        ]
+        default_values = f"./cache/default_values.json"
+        with open(default_values, "r") as file:
+            self.sections = json.loads(file.read())
 
         # Bouton import fichier excel
         Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
@@ -81,10 +79,9 @@ class Application(Frame):
         self.filePathLabel.grid(column=1, row=0, columnspan=6, pady=20)
 
         # Sections
-        for i, (title, default_values) in enumerate(self.sections):
-            section = ProductSection(self, title, default_values)
+        for i, tuple in enumerate(self.sections):
+            section = ProductSection(self, tuple["state"], tuple["values"])
             section.grid(column=i * 2, row=1)
-
 
         # progressbar
         self.progressbar = Progressbar(
@@ -124,7 +121,7 @@ class Application(Frame):
         try:
             os.system(f"start excel {self.file_path_export}")
         except Exception as e:
-            messagebox.showerror("EXCEL",f"Erreur lors de l'ouverture du fichier : {self.file_path_export}")
+            messagebox.showerror("EXCEL", f"Erreur lors de l'ouverture du fichier : {self.file_path_export}")
 
     def get_mpn_ids(self):
         try:
@@ -137,7 +134,7 @@ class Application(Frame):
 
             return flat_list
         except Exception:
-            messagebox.showerror('IDS',"La colonne des réf doit être nommée 'MPN'")
+            messagebox.showerror('IDS', "La colonne des réf doit être nommée 'MPN'")
 
     def get_date_code(self):
         try:
@@ -162,7 +159,6 @@ class Application(Frame):
             return flat_list
         except Exception:
             messagebox.showerror('QUANTITY', "La colonne des quantités doit être nommée 'QUANTITY'")
-
 
     def transformer_chaine(self, chaine, chaine_origine=None):
         chaine = str(chaine)
@@ -218,7 +214,7 @@ class Application(Frame):
             print(title, default_values)
 
     def export_to_pdf(self):
-        self.affichage()
+        self.sauvegarder_valeurs()
         total_components = len(self.components)
         ids = []
         prices = []
@@ -278,6 +274,12 @@ class Application(Frame):
             self.value_label.config(text=f"Current Progress: {round(self.current_process)} %")
         self.update_idletasks()  # Force la mise à jour de l'interface utilisateur
 
+    def sauvegarder_valeurs(self):
+        data_to_save = [{"state": values["state"], "values": values["values"]} for values in self.sections]
+        with open("./cache/default_values.json", "w") as f:
+            json.dump(data_to_save, f, indent=2)
+
+
 
 def main():
     app = Tk()
@@ -287,68 +289,5 @@ def main():
     Application(app)
     app.mainloop()
 
-
-"""
-    mpn_ids = [
-        "STM32F765NIH6",
-        "MK10DX128VLQ10",
-        "AG9924M",
-        "0818111",
-        "BTS432E2E3062ABUMA1",
-        "BG96MA-128-SGN",
-        "DSPIC33EV256GM102-I/MM",
-        "XPC250300S-02",
-        "1734346-1",
-        "EPG.1B.304.HLN",
-        "BNX028-01",
-        "BQ25306RTER",
-        "ADuM4160BRWZ",
-        "LT3750EMS#TRPBF",
-        "MAX11254ATJ+",
-        "25AA256-I/SN",
-        "NUCLEO-F303K8",
-        "LD1117S33TR",
-        "MAX6070AAUT21+T",
-        "1-1634200-7",
-        "ISR3SAD200",
-        "AMDLA4010S-2R2MT",
-        "SIR876ADP-T1-GE3",
-        "DA2034-ALD",
-        "LPS103-M",
-        "S1227-66BR",
-        "ODROID-C2",
-        "7448060814",
-        "LP2985-50DBVR",
-        "STM32F302C8T6TR",
-        "OWA-60E-24",
-        "3210237",
-        "FTSH-105-05-F-DV-P-TR",
-        "MCP7940NT-I/SN",
-        "PIC16F88-E/SO",
-        "PIC16F88-I/SO",
-        "RS-15-12",
-        "PMEG2005EH",
-        "Radxa Pi Zero SBC",
-        "ORG1510-MK05-TR2",
-        "LQW15AN9N1H00D",
-        "MAX17205G+00E",
-        "NC4FDM3-H-BAG",
-        "CR95HF-VMD5T",
-        "SIM868",
-        "LM5122MHX/NOPB",
-        "STGIF7CH60TS-L",
-        "STM32F303VCT6",
-    ]
-
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    filename = f"../output/result_common_{timestamp}.json"
-    with open(filename, "w") as file:
-        json.dump([], file)
-
-    for mpn in mpn_ids:
-        search_engine_service = SearchEngineService()
-        search_engine_service.search_price_by_mpn(mpn=mpn, filename=filename)
-
-"""
 if __name__ == "__main__":
     main()
