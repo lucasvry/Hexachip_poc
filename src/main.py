@@ -5,6 +5,8 @@ from tkinter import filedialog, messagebox
 from tkinter.ttk import *
 from datetime import datetime
 import re
+from playsound import playsound
+
 
 import pandas as pd
 
@@ -54,11 +56,13 @@ class Application(Frame):
     def __init__(self, root):
         super().__init__(root)
         self.current_process = 0
-        self._create_gui()
         self.pack()
         self.mpn_ids = []
         self.search_engine_service = SearchEngineService()
         self.file_path_export = None
+        self.sections: [(str,[int])] = []
+        self._create_gui()
+
 
         os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
         os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
@@ -70,7 +74,9 @@ class Application(Frame):
     def _create_gui(self):
         default_values = f"./cache/default_values.json"
         with open(default_values, "r") as file:
-            self.sections = json.loads(file.read())
+            jsonLoaded = json.loads(file.read())
+            for tuple in jsonLoaded:
+                self.sections.append((tuple["state"],tuple["values"]))
 
         # Bouton import fichier excel
         Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
@@ -78,9 +84,8 @@ class Application(Frame):
         self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
         self.filePathLabel.grid(column=1, row=0, columnspan=6, pady=20)
 
-        # Sections
-        for i, tuple in enumerate(self.sections):
-            section = ProductSection(self, tuple["state"], tuple["values"])
+        for i, (title, default_values) in enumerate(self.sections):
+            section = ProductSection(self, title, default_values)
             section.grid(column=i * 2, row=1)
 
         # progressbar
@@ -273,9 +278,11 @@ class Application(Frame):
             self.progressbar['value'] = self.current_process
             self.value_label.config(text=f"Current Progress: {round(self.current_process)} %")
         self.update_idletasks()  # Force la mise à jour de l'interface utilisateur
+        if self.current_process == 100:
+            playsound(os.path.abspath(".\sounds\msn.mp3"))
 
     def sauvegarder_valeurs(self):
-        data_to_save = [{"state": values["state"], "values": values["values"]} for values in self.sections]
+        data_to_save = [{"state": title, "values": default_values} for (title, default_values) in self.sections]
         with open("./cache/default_values.json", "w") as f:
             json.dump(data_to_save, f, indent=2)
 
