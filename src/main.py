@@ -121,7 +121,6 @@ class Application(Frame):
             date_code = self.get_date_code()
             self.mpn_ids = self.get_mpn_ids()
             self.quantity = self.get_quantity()
-            print(self.quantity)
 
     def ouvrir_excel(self):
         try:
@@ -281,7 +280,8 @@ class Application(Frame):
             self.value_label.config(text=f"Current Progress: {round(self.current_process)} %")
         self.update_idletasks()  # Force la mise à jour de l'interface utilisateur
         if self.current_process == 100:
-            playsound(os.path.abspath(".\sounds\msn.mp3"))
+            print(os.path.abspath("./sounds/msn.mp3"))
+            playsound(os.path.abspath("./sounds/msn.mp3"))
 
     def sauvegarder_valeurs(self):
         data_to_save = [{"state": title, "values": default_values} for (title, default_values) in self.sections]
