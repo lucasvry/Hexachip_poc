@@ -1,3 +1,4 @@
+from itertools import chain
 from typing import Optional
 
 import digikey
@@ -45,9 +46,43 @@ class SearchEngineService:
         logger.addHandler(handler)
         digikey_logger.addHandler(handler)
 
-    def search_by_mpn(self, mpn) -> SearchMpnResult:
-        octopart_result = self.search_by_mpn_octopart(mpn)
-        digikey_result = self.search_by_mpn_digikey(mpn)
+    def get_closest_price_octopart(self, quantity, prices):
+        closest_price = None
+        min_diff = float('inf')
+        closest_quantity = None
+        for price in prices:
+            diff = abs(price.get("quantity", 0) - quantity)
+            if diff < min:
+                min_diff = diff
+                selected_price_value = price.get("convertedPrice", 0)
+                closest_price = selected_price_value
+                closest_quantity = price.get("quantity", 0)
+            elif diff == min_diff and price.get("convertedPrice", 0) < closest_price:
+                closest_price = price.get("convertedPrice", 0)
+                closest_quantity = price.get("quantity", 0)
+        # print(f"[OCTOPART] For quantity: {quantity}, closest price: {closest_price}, closest quantity: {closest_quantity}")
+        return closest_price
+
+    def get_closest_price_digikey(self, quantity, prices):
+        closest_price = None
+        min_diff = float('inf')
+        closest_quantity = None
+        for price in prices:
+            diff = abs(price.get("break_quantity") - quantity)
+            selected_price_value = price.get("unit_price")
+            if diff < min:
+                min_diff = diff
+                closest_price = selected_price_value
+                closest_quantity = price.get("break_quantity")
+            elif diff == min_diff and price.get("unit_price") < closest_price:
+                closest_price = selected_price_value
+                closest_quantity = price.get("break_quantity")
+        # print(f"[DIGIKEY] For quantity: {quantity}, closest price: {closest_price}, closest_quantity: {closest_quantity}")
+        return closest_price
+
+    def search_by_mpn(self, mpn, quantity) -> SearchMpnResult:
+        octopart_result = self.search_by_mpn_octopart(mpn, quantity)
+        digikey_result = self.search_by_mpn_digikey(mpn, quantity)
 
         print(
             f"For mpn: {mpn},\n - octopart: {octopart_result},\n - digikey: {digikey_result}")
@@ -87,7 +122,7 @@ class SearchEngineService:
 
         return SearchMpnResult(mpn=mpn, market_price=estimate_price, is_obsolete=is_obsolete, stock=stock)
 
-    def search_by_mpn_digikey(self, mpn) -> Optional[SearchMpnResult]:
+    def search_by_mpn_digikey(self, mpn, quantity) -> Optional[SearchMpnResult]:
         os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
         os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
         os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
@@ -105,20 +140,20 @@ class SearchEngineService:
                 # print(f"No results for partId {mpn}")
                 return None
 
-            unit_price = results[0].get("unit_price", 0)
+            market_price = self.get_closest_price_digikey(quantity, results[0].get("standard_pricing", []))
             is_obsolete = results[0].get("obsolete", False)
             quantity_available = results[0].get("quantity_available", 0)
 
-            if unit_price <= 0 and quantity_available <= 0:
+            if market_price <= 0 and quantity_available <= 0:
                 # print(f"No results for partId {mpn}")
                 return None
 
-            return SearchMpnResult(mpn=mpn, market_price=unit_price, is_obsolete=is_obsolete, stock=quantity_available)
+            return SearchMpnResult(mpn=mpn, market_price=market_price, is_obsolete=is_obsolete, stock=quantity_available)
         except Exception as e:
             print(f"Error while fetching data from digikey for partId {mpn}: {e}")
             return None
 
-    def search_by_mpn_octopart(self, mpn) -> Optional[SearchMpnResult]:
+    def search_by_mpn_octopart(self, mpn, quantity) -> Optional[SearchMpnResult]:
         # print("searching by mpn for octopart : ", mpn)
         BEARER_TOKEN_OCTOPART = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDc4MjY0ODYsImV4cCI6MTcwNzkxMjg4NiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiIwMGI1MjJiYS1iNTA1LTQxYzEtOGJhOC02ZDljYzgyNDQ1NWEiLCJzdWIiOiJGODY3NzFGQS00Qjg0LTRDNDEtOUNFMi1GQUQwQjM5QTEyOUEiLCJhdXRoX3RpbWUiOjE3MDc4MjYzNzAsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiI3ZGQwMWMxNi1hNzQ4LTQ0MWEtOGFiYS1kY2FiZjE4MzZjZjIiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJRQUdiNXZKV3RrdUltcVlVYm9NRy9mNmFzSDROaDM2cG0rUmtmeFVKZDR3PSIsImp0aSI6IjcwRUQ2NkQ5N0ZCQzkyNTRGQkREOTJFMTJDNUJFMzM1Iiwic2lkIjoiODE5NDFCQkJFOTAxRTk5NjQzNzA1MjkxRTEwMTg3QjAiLCJpYXQiOjE3MDc4MjY0ODYsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.KTR0CgB96iMfE54TZEuSTkZtScniGsFUhGJho6KiO2m_t39yPqASCeW4QDmyTB9FyqTXzZM2DwRpz7O18H1YcpOWBxETZ7Am5bQQompWUJYo9E_rvWAdauHA5wc9pkB1tW1blGxZboy1HpGrpMbzvsFpupvQGE8ATjwsumv52VRcmD991riw44SuilbeM4Z5ECDa8Kcbiy8M5V0uFps3XfkrB1HPvl4O0MHyaqh5amrhS0E5E2UOgtqtsFV75GaYtQiyp91pFgOEfV0htPK1VlCijK2rmfLX3AUtlsfIuO4gsz20xJaNtVz_BIlWeBqKKr-wigSywgStFsjz3QlCOg"
         API_URL_OCTOPART = "https://api.nexar.com/graphql"
@@ -180,8 +215,6 @@ class SearchEngineService:
 
                     sellers = results[0].get("part", {}).get("sellers", [])
                     sellers_authorized = [seller for seller in sellers if seller.get("isAuthorized", False)]
-                    number_of_prices = 0
-                    total_converted_price = 0
 
                     if len(sellers_authorized) <= 0:
                         # print("no authorized sellers")
@@ -189,17 +222,10 @@ class SearchEngineService:
                     else:
                         # print("using authorized sellers")
                         sellers = sellers_authorized
+                    all_prices = list(chain.from_iterable([seller.get("offers", [])[0].get("prices", []) for seller in sellers]))
 
-                    for seller in sellers:
-                        seller_offers = seller.get("offers", [])
-                        if len(seller_offers) > 0:
-                            seller_prices = seller_offers[0].get("prices", [])
-                            total_converted_price += sum(item['convertedPrice'] for item in seller_prices)
-                            number_of_prices += len(seller_prices)
-
-                    if number_of_prices > 0:
-                        market_price = total_converted_price / number_of_prices
-
+                    if len(all_prices) > 0:
+                        market_price = self.get_closest_price_octopart(quantity, all_prices)
                     res = SearchMpnResult(mpn=mpn, market_price=market_price, stock=stock, is_obsolete=is_obsolete)
                     return res
                 else:

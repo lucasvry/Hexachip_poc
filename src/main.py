@@ -62,6 +62,7 @@ class Application(Frame):
         self.file_path_export = None
         self.sections: [(str,[int])] = []
         self._create_gui()
+        self.quantity = []
 
 
         os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
@@ -119,8 +120,8 @@ class Application(Frame):
             self.import_excel = pd.read_excel(fichier)
             date_code = self.get_date_code()
             self.mpn_ids = self.get_mpn_ids()
-            quantites = self.get_quantity()
-            print(quantites)
+            self.quantity = self.get_quantity()
+            print(self.quantity)
 
     def ouvrir_excel(self):
         try:
@@ -265,7 +266,8 @@ class Application(Frame):
             json.dump([], file)
 
         for mpn in self.mpn_ids:
-            result = self.search_engine_service.search_by_mpn(mpn=mpn)
+            index = self.mpn_ids.index(mpn)
+            result = self.search_engine_service.search_by_mpn(mpn=mpn, quantity=self.quantity[index])
             with open(filename, "r+") as file:
                 data = json.load(file)
                 data.append(result.to_json())
