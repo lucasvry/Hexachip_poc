@@ -34,8 +34,8 @@ class ProductSection(Frame):
     def _create_label_and_entry(self, label_text, row):
         label = Label(self, text=label_text)
         label.grid(column=0, row=row, pady=5)
-        var = IntVar(value=self.default_values[row - 2])
-        champ = Entry(self, textvariable=var, validate="key")
+        champ = Entry(self, validate="key")
+        champ.insert(0, self.default_values[row - 2])
         champ.grid(column=1, row=row, padx=15, pady=5)
 
         champ.bind("<KeyRelease>", lambda event: self._validate_entry(event, row - 2, champ))
@@ -85,7 +85,6 @@ class Application(Frame):
             section = ProductSection(self, title, default_values)
             section.grid(column=i * 2, row=1)
 
-        self.affichage()
 
         # progressbar
         self.progressbar = Progressbar(
@@ -211,6 +210,7 @@ class Application(Frame):
             print(title, default_values)
 
     def export_to_pdf(self):
+        self.affichage()
         total_components = len(self.components)
         ids = []
         prices = []
