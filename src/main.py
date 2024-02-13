@@ -7,12 +7,11 @@ from datetime import datetime
 import re
 from playsound import playsound
 
-
 import pandas as pd
 
 from services.SearchEngineService import SearchEngineService
 from src.test import test
-from src.utils.formule import State, calculer_prix_vente_estime
+from src.utils.formule import State, calculer_prix_vente_estime, Component
 
 
 class ProductSection(Frame):
@@ -60,10 +59,9 @@ class Application(Frame):
         self.mpn_ids = []
         self.search_engine_service = SearchEngineService()
         self.file_path_export = None
-        self.sections: [(str,[int])] = []
+        self.sections: [(str, [int])] = []
         self._create_gui()
         self.quantity = []
-
 
         os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
         os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
@@ -77,7 +75,7 @@ class Application(Frame):
         with open(default_values, "r") as file:
             jsonLoaded = json.loads(file.read())
             for tuple in jsonLoaded:
-                self.sections.append((tuple["state"],tuple["values"]))
+                self.sections.append((tuple["state"], tuple["values"]))
 
         # Bouton import fichier excel
         Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
@@ -118,7 +116,7 @@ class Application(Frame):
             self.file_path = fichier
             self.filePathLabel.config(text=self.file_path)
             self.import_excel = pd.read_excel(fichier)
-            date_code = self.get_date_code()
+            self.date_codes = self.get_date_codes()
             self.mpn_ids = self.get_mpn_ids()
             self.quantity = self.get_quantity()
 
@@ -141,7 +139,7 @@ class Application(Frame):
         except Exception:
             messagebox.showerror('IDS', "La colonne des réf doit être nommée 'MPN'")
 
-    def get_date_code(self):
+    def get_date_codes(self):
         try:
             # Sélectionner les colonnes spécifiées dans la variable result
             columns_to_select = ["DATE_CODE"]
@@ -220,7 +218,6 @@ class Application(Frame):
 
     def export_to_pdf(self):
         self.sauvegarder_valeurs()
-        total_components = len(self.components)
         ids = []
         prices = []
         market_prices = []
@@ -228,18 +225,47 @@ class Application(Frame):
 
         folder_selected = filedialog.askdirectory()
         if folder_selected:
-            for index, component in enumerate(self.components, start=1):
-                prix_estime = calculer_prix_vente_estime(component, self.sections)
+            output_directory = "./output"
+            if not os.path.exists(output_directory):
+                os.makedirs(output_directory)
 
+            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            filename = f"./output/result_common_{timestamp}.json"
+            with open(filename, "w") as file:
+                json.dump([], file)
+
+            for mpn in self.mpn_ids:
+                index = self.mpn_ids.index(mpn)
+                result = self.search_engine_service.search_by_mpn(mpn=mpn, quantity=self.quantity[index])
+                with open(filename, "r+") as file:
+                    data = json.load(file)
+                    data.append(result.to_json())
+                    file.seek(0)
+                    json.dump(data, file, indent=4)
+
+                if result.market_price is None or result.stock is None or result.market_price == 0 or result.stock == 0:
+                    self.progress()
+                    continue
+
+                fabrication_state: State = State.OBSOLETE if result.is_obsolete else State.FABRICATION
+                component = Component(
+                    id=result.mpn,
+                    prix_moyen_marche=result.market_price if result.market_price else 0,
+                    variation_stock=0.85,
+                    stock_mondial=result.stock if result.stock else 0,
+                    annee_achat=self.date_codes[index],
+                    etat_fabrication=fabrication_state
+                )
+                estimated_price = calculer_prix_vente_estime(component, self.sections)
                 ids.append(component.id)
-                prices.append(prix_estime)
+                prices.append(estimated_price)
                 market_prices.append(component.prix_moyen_marche)
                 pourcentages.append(
-                    f"{(prix_estime - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+                    f"{(estimated_price - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
 
                 self.progress()
                 print("------------------------------------------------------")
-                print(f"Traitement du composant {index}/{total_components}")
+                print(f"Traitement du composant {index}/{len(self.mpn_ids)}")
 
             data = {'REFS': ids,
                     'PRIX ESTIMES (en $)': prices,
@@ -255,30 +281,13 @@ class Application(Frame):
         else:
             print('Aucun dossier sélectionné. Annulation de l\'enregistrement.')
 
-        output_directory = "./output"
-        if not os.path.exists(output_directory):
-            os.makedirs(output_directory)
-
-        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = f"./output/result_common_{timestamp}.json"
-        with open(filename, "w") as file:
-            json.dump([], file)
-
-        for mpn in self.mpn_ids:
-            index = self.mpn_ids.index(mpn)
-            result = self.search_engine_service.search_by_mpn(mpn=mpn, quantity=self.quantity[index])
-            with open(filename, "r+") as file:
-                data = json.load(file)
-                data.append(result.to_json())
-                file.seek(0)
-                json.dump(data, file, indent=4)
-
     def progress(self):
         if self.current_process < 100:
-            self.current_process += 100 / len(self.components)
+            print("increase progress")
+            self.current_process += 100 / len(self.mpn_ids)
             self.progressbar['value'] = self.current_process
             self.value_label.config(text=f"Current Progress: {round(self.current_process)} %")
-        self.update_idletasks()  # Force la mise à jour de l'interface utilisateur
+            self.update_idletasks()  # Mettre à jour l'interface utilisateur après chaque itération
         if self.current_process == 100:
             print(os.path.abspath("./sounds/msn.mp3"))
             playsound(os.path.abspath("./sounds/msn.mp3"))
@@ -289,7 +298,6 @@ class Application(Frame):
             json.dump(data_to_save, f, indent=2)
 
 
-
 def main():
     app = Tk()
     app.geometry("1100x500")
@@ -297,6 +305,7 @@ def main():
     app.title("Hexachip Simulation")
     Application(app)
     app.mainloop()
+
 
 if __name__ == "__main__":
     main()
