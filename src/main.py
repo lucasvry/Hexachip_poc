@@ -77,14 +77,14 @@ class ProductSection(Frame):
             self._create_label_and_entry(label_text, i)
 
         sep = Separator(self, orient="vertical")
-        sep.grid(column=2, row=1, rowspan=len(labels) + 1, sticky="ns")
+        sep.grid(column=2, row=1, rowspan=len(labels) + 1, sticky="ns", padx=10)
 
     def _create_label_and_entry(self, label_text, row):
         label = Label(self, text=label_text)
         label.grid(column=0, row=row, pady=5, sticky="w")
         champ = Entry(self, validate="key", width=6)
         champ.insert(0, self.default_values[row - 2])
-        champ.grid(column=1, row=row, padx=15, pady=5)
+        champ.grid(column=1, row=row, padx=15, pady=5, sticky="w")
         percentage = Label(self, text="%")
         percentage.grid(column=1, row=row, padx=20, pady=5, sticky="e")
         champ.bind("<KeyRelease>", lambda event: self._validate_entry(event, row - 2, champ))
@@ -106,7 +106,7 @@ class Application(Frame):
     def __init__(self, root):
         super().__init__(root)
         self.current_process = 0
-        self.pack()
+        self.pack(padx=30, pady=20)
         self.mpn_ids = []
         self.search_engine_service = SearchEngineService()
         self.file_path_export = None
@@ -121,7 +121,7 @@ class Application(Frame):
         self.wait_window(modal)
 
     def _create_gui(self):
-        Button(self, text="Configurer les API", command=self.open_modal).grid(column=0, row=12, pady=10)
+        Button(self, text="Configurer", command=self.open_modal).grid(column=4, row=0, padx=10, sticky='ns')
 
         default_values = f"./cache/default_values.json"
         with open(default_values, "r") as file:
@@ -129,7 +129,7 @@ class Application(Frame):
             for tuple in jsonLoaded:
                 self.sections.append((tuple["state"], tuple["values"]))
 
-        Label(self, text="Valorisation des composants", font=("Arial", 20)).grid(column=0, row=0, columnspan=8, pady=10)
+        Label(self, text="Valorisation des composants", font=("Arial", 20), anchor="center").grid(column=0, row=0, columnspan=8, pady=10)
         Label(self, text="1. Sélectionner un CSV", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
         # Bouton import fichier excel
         Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=2, columnspan=7,
@@ -152,8 +152,8 @@ class Application(Frame):
 
         self.c1 = Checkbutton(self, text="Estimer grâce à la formule", variable=self.formule_checked)
         self.c2 = Checkbutton(self, text="Estimer grâce à l'IA (non entraînée)", variable=self.ia_checked)
-        self.c1.grid(column=2, row=7, sticky='w', pady=20)
-        self.c2.grid(column=2, row=8, sticky='w')
+        self.c1.grid(column=0, row=7, sticky='w', padx=20, pady=20)
+        self.c2.grid(column=0, row=8, sticky='w', padx=20)
 
         # progressbar
         self.progressbar = Progressbar(
@@ -168,7 +168,7 @@ class Application(Frame):
 
         # Bouton ouvrir l'excel
         self.open_excel_button = Button(self, text="Ouvrir l'excel", command=self.ouvrir_excel)
-        self.open_excel_button.grid(column=2, row=10, columnspan=2, pady=5)
+        self.open_excel_button.grid(column=2, row=10, columnspan=2, pady=0)
         self.open_excel_button.config(state=DISABLED)
 
         self.value_label = Label(self, text="Current Progress: 0 %")
@@ -178,7 +178,6 @@ class Application(Frame):
         self.progressbar.grid(column=0, row=11, columnspan=8, padx=10, pady=20)
 
     def import_file(self):
-        # Ouvrir une fenêtre de dialogue pour choisir le fichier
         fichier = filedialog.askopenfilename(filetypes=[("Excel files", ".xlsx .xls .csv")])
         if fichier:
             self.file_path = fichier
@@ -398,7 +397,7 @@ def main():
     app = Tk()
     photo = PhotoImage(file="./assets/hexa.png")
     app.iconphoto(False, photo)
-    app.geometry("900x800")
+    #app.geometry("900x800")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
