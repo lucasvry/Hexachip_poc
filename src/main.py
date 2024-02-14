@@ -114,11 +114,6 @@ class Application(Frame):
         self._create_gui()
         self.quantity = []
 
-        os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
-        os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
-        os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
-        os.environ['DIGIKEY_STORAGE_PATH'] = "./cache"
-
     components = test.components
 
     def open_modal(self):
