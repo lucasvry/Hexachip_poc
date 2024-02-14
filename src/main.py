@@ -1,12 +1,12 @@
 import json
 import os
+import platform
 from tkinter import *
 from tkinter import filedialog, messagebox
 from tkinter.ttk import *
 from datetime import datetime
 import re
 from playsound import playsound
-from dotenv import load_dotenv
 
 import pandas as pd
 
@@ -36,10 +36,11 @@ class ProductSection(Frame):
     def _create_label_and_entry(self, label_text, row):
         label = Label(self, text=label_text)
         label.grid(column=0, row=row, pady=5)
-        champ = Entry(self, validate="key")
+        champ = Entry(self, validate="key", width=5)
         champ.insert(0, self.default_values[row - 2])
         champ.grid(column=1, row=row, padx=15, pady=5)
-
+        percentage = Label(self, text="%")
+        percentage.grid(column=1, row=row, padx=20, pady=5, sticky="e")
         champ.bind("<KeyRelease>", lambda event: self._validate_entry(event, row - 2, champ))
 
     def _validate_entry(self, event, index, champ):
@@ -50,6 +51,8 @@ class ProductSection(Frame):
             champ.bell()
             champ.delete(0, END)
 
+    def open_modal(self):
+        pass
 
 class Application(Frame):
 
@@ -78,23 +81,28 @@ class Application(Frame):
             for tuple in jsonLoaded:
                 self.sections.append((tuple["state"], tuple["values"]))
 
+        Label(self, text="Valorisation des composants", font=("Arial", 20)).grid(column=0, row=0, columnspan=8, pady=10)
+        Label(self, text="1. Sélectionner un CSV", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
         # Bouton import fichier excel
-        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=0, pady=20)
+        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=2, row=2, pady=10)
 
         self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
-        self.filePathLabel.grid(column=1, row=0, columnspan=6, pady=20)
+        self.filePathLabel.grid(column=0, row=3, columnspan=7, pady=10)
 
+        Label(self, text="2. Définir les paramètres", font=("Arial", 15)).grid(column=0, row=4, pady=5, padx=0, sticky='w')
         for i, (title, default_values) in enumerate(self.sections):
             section = ProductSection(self, title, default_values)
-            section.grid(column=i * 2, row=1)
+            section.grid(column=i * 2, row=5)
 
         self.formule_checked = IntVar(value=1)
         self.ia_checked = IntVar(value=0)
 
+        Label(self, text="3. Choisir le mode de traitement", font=("Arial", 15)).grid(column=0, row=6, pady=15, sticky='w')
+
         self.c1 = Checkbutton(self, text="Estimer grâce à la formule", variable=self.formule_checked)
         self.c2 = Checkbutton(self, text="Estimer grâce à l'IA (non entraînée)", variable=self.ia_checked)
-        self.c1.grid(column=2, row=5, sticky='w', pady=20)
-        self.c2.grid(column=2, row=6, sticky='w')
+        self.c1.grid(column=2, row=7, sticky='w', pady=20)
+        self.c2.grid(column=2, row=8, sticky='w')
 
         # progressbar
         self.progressbar = Progressbar(
@@ -104,19 +112,20 @@ class Application(Frame):
             length=280,
         )
 
-        # place the progressbar
-        self.progressbar.grid(column=0, row=7, columnspan=8, padx=10, pady=20)
-
-        # label
-        self.value_label = Label(self, text="Current Progress: 0 %")
-        self.value_label.grid(column=0, row=7, columnspan=2)
-
         # Bouton génération des prix
-        Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=8, columnspan=8, pady=20)
+        Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=2, row=9, columnspan=2, pady=10)
 
         # Bouton ouvrir l'excel
         self.open_excel_button = Button(self, text="Ouvrir l'excel", command=self.ouvrir_excel)
-        self.open_excel_button.grid(column=0, row=9, columnspan=8, pady=20)
+        self.open_excel_button.grid(column=2, row=10, columnspan=2, pady=5)
+        self.open_excel_button.config(state=DISABLED)
+
+        self.value_label = Label(self, text="Current Progress: 0 %")
+        self.value_label.grid(column=0, row=11, columnspan=2)
+
+        # place the progressbar
+        self.progressbar.grid(column=0, row=11, columnspan=8, padx=10, pady=20)
+
 
     def import_file(self):
         # Ouvrir une fenêtre de dialogue pour choisir le fichier
@@ -131,7 +140,10 @@ class Application(Frame):
 
     def ouvrir_excel(self):
         try:
-            os.system(f"start excel {self.file_path_export}")
+            if platform.system() == "Windows":
+                os.system(f"start excel {self.file_path_export}")
+            if platform.system() == "Darwin":
+                os.system(f"open {self.file_path_export}")
         except Exception as e:
             messagebox.showerror("EXCEL", f"Erreur lors de l'ouverture du fichier : {self.file_path_export}")
 
@@ -234,6 +246,8 @@ class Application(Frame):
         prices_ia = []
         pourcentages_ia = []
 
+        self.open_excel_button.config(state=DISABLED)
+
         folder_selected = filedialog.askdirectory()
         if folder_selected:
             output_directory = "./output"
@@ -302,6 +316,7 @@ class Application(Frame):
             self.file_path_export = f'{folder_selected}/export_prices.xlsx'
             df.to_excel(self.file_path_export, index=False)
             print(f'Fichier enregistré avec succès à : {self.file_path_export}')
+            self.open_excel_button.config(state=NORMAL)
         else:
             print('Aucun dossier sélectionné. Annulation de l\'enregistrement.')
 
@@ -324,7 +339,7 @@ class Application(Frame):
 
 def main():
     app = Tk()
-    app.geometry("1100x500")
+    app.geometry("900x650")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
