@@ -7,6 +7,7 @@ from tkinter.ttk import *
 from datetime import datetime
 import re
 from playsound import playsound
+import services.OctopartScrapperService as scrapper
 import threading
 
 import pandas as pd
@@ -291,6 +292,7 @@ class Application(Frame):
         thread.start()
 
     def export_to_pdf_thread(self):
+        octopartScrapperService = scrapper.OctopartScrapperService()
         self.sauvegarder_valeurs()
         ids = []
         market_prices = []
@@ -319,6 +321,14 @@ class Application(Frame):
             for mpn in self.mpn_ids:
                 index = self.mpn_ids.index(mpn)
 
+                objectScrapped = octopartScrapperService.getDataByRef(mpn,True)
+                if objectScrapped.responseStatut != scrapper.ResponseStatut.RefFounded:
+                    self.progress(index + 1)
+                    continue
+                variation = objectScrapped.stockVariation / 100
+
+
+
                 print("------------------------------------------------------")
                 print(f"Traitement du composant {index + 1}/{len(self.mpn_ids)}")
 
@@ -337,7 +347,7 @@ class Application(Frame):
                 component = Component(
                     id=result.mpn,
                     prix_moyen_marche=result.market_price if result.market_price else 0,
-                    variation_stock=-0.07,
+                    variation_stock=variation,
                     stock_mondial=result.stock if result.stock else 0,
                     annee_achat=self.date_codes[index],
                     etat_fabrication=fabrication_state
@@ -402,7 +412,6 @@ def main():
     app = Tk()
     photo = PhotoImage(file="./assets/hexa.png")
     app.iconphoto(False, photo)
-    # app.geometry("900x800")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
