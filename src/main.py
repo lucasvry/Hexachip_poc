@@ -7,6 +7,7 @@ from tkinter.ttk import *
 from datetime import datetime
 import re
 from playsound import playsound
+import threading
 
 import pandas as pd
 
@@ -238,6 +239,12 @@ class Application(Frame):
             print(title, default_values)
 
     def export_to_pdf(self):
+        # Créez un thread avec la fonction export_to_pdf_thread comme cible
+        thread = threading.Thread(target=self.export_to_pdf_thread)
+        # Démarrez le thread
+        thread.start()
+
+    def export_to_pdf_thread(self):
         self.sauvegarder_valeurs()
         ids = []
         market_prices = []
@@ -313,12 +320,13 @@ class Application(Frame):
                 data['DIFFERENCE (en %) IA'] = pourcentages_ia
             df = pd.DataFrame(data)
 
-            self.file_path_export = f'{folder_selected}/export_prices.xlsx'
+            self.file_path_export = f'{folder_selected}/export_prices_{timestamp}.xlsx'
             df.to_excel(self.file_path_export, index=False)
             print(f'Fichier enregistré avec succès à : {self.file_path_export}')
             self.open_excel_button.config(state=NORMAL)
         else:
             print('Aucun dossier sélectionné. Annulation de l\'enregistrement.')
+
 
     def progress(self):
         if self.current_process < 100:
@@ -339,7 +347,7 @@ class Application(Frame):
 
 def main():
     app = Tk()
-    app.geometry("900x650")
+    app.geometry("900x750")
     photo = PhotoImage(file="./assets/hexa.png")
     app.iconphoto(False, photo)
     app.resizable(0, 0)
