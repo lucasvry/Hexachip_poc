@@ -134,7 +134,7 @@ def calculer_prix_vente_estime(component: Component, coefficients: list[[str, li
     print(f"Prix moyen actuel: {prix_moyen_actuel}")
     print(f"Variation du stock entre 2023 et 2024: {variation_stock * 100:.1f}%")
     print(f"Stock mondial: {stock_mondial}")
-    print(f"Année d'achat: {annee_achat}")
+    print(f"Année de fabrication : {annee_achat}")
     print("--")
     prix_vente = min(prix_vente_estime, prix_moyen_actuel)
     print(

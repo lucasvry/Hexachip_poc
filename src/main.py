@@ -132,9 +132,9 @@ class Application(Frame):
 
         Label(self, text="Valorisation des composants", font=("Arial", 20), anchor="center").grid(column=0, row=0,
                                                                                                   columnspan=8, pady=10)
-        Label(self, text="1. Sélectionner un CSV", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
+        Label(self, text="1. Sélectionner un fichier (csv, xls, xlsx)", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
         # Bouton import fichier excel
-        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=2, columnspan=7,
+        Button(self, text="Importer un fichier", command=self.import_file).grid(column=0, row=2, columnspan=7,
                                                                                     pady=10)
 
         self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
@@ -337,7 +337,7 @@ class Application(Frame):
                 component = Component(
                     id=result.mpn,
                     prix_moyen_marche=result.market_price if result.market_price else 0,
-                    variation_stock=0.85,
+                    variation_stock=-0.07,
                     stock_mondial=result.stock if result.stock else 0,
                     annee_achat=self.date_codes[index],
                     etat_fabrication=fabrication_state
