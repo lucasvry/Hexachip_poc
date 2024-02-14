@@ -340,6 +340,8 @@ class Application(Frame):
 def main():
     app = Tk()
     app.geometry("900x650")
+    photo = PhotoImage(file="./assets/hexa.png")
+    app.iconphoto(False, photo)
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
