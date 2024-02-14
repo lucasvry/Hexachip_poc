@@ -90,7 +90,7 @@ class OctopartScrapperService:
     }
 
     files = {
-        "exchangeRateFile": "../cache/exchangeRateCache.json"
+        "exchangeRateFile": "./cache/exchangeRateCache.json"
     }
 
     def __init__(self):
@@ -203,7 +203,7 @@ class OctopartScrapperService:
         try:
             stockVariation = float(soup.select(OctopartScrapperService.css_selectors["variationStock"])[0].text[:-1])
         except IndexError:
-            stockVariation = None
+            stockVariation = 0
         except ValueError:
             stockVariation = 0
 
@@ -262,7 +262,7 @@ class OctopartScrapperService:
             print(f"Prix moyens pour: ")
             for key in pricesAverage:
                 print(f"- {key} = {pricesAverage[key]}$")
-            print(f"Stock mondiale de: {totalStock}")
+            print(f"Stock mondial de: {totalStock}")
             print(f"Variation de stock de: {stockVariation}")
             print("Cycle de vie: ", end="")
             if (status == Statut.INCONNU):
