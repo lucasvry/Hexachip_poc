@@ -69,10 +69,14 @@ def pourcentage_variation_stock(variation_stock):
         return 1.3
     elif variation_stock <= -0.5:
         return 1.2
+    elif variation_stock <= -0.25:
+        return 1.15
     elif variation_stock < 0:
         return 1.1
     elif variation_stock == 0:
         return 1
+    elif variation_stock <= 0.25:
+        return 0.95
     elif variation_stock < 0.5:
         return 0.9
     elif variation_stock < 0.75:
@@ -125,6 +129,7 @@ def calculer_prix_vente_estime(component: Component, coefficients: list[[str, li
     prix_vente_estime = numerator / (denominator * compteur_coefficients)
 
     # Imprimer les valeurs utilisées dans le calcul
+    print(f"ID: {component.id}")
     print(f"Etat de fabrication: {etat_fabrication.name}")
     print(f"Prix moyen actuel: {prix_moyen_actuel}")
     print(f"Variation du stock entre 2023 et 2024: {variation_stock * 100:.1f}%")

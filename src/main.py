@@ -88,6 +88,14 @@ class Application(Frame):
             section = ProductSection(self, title, default_values)
             section.grid(column=i * 2, row=1)
 
+        self.formule_checked = IntVar(value=1)
+        self.ia_checked = IntVar(value=0)
+
+        self.c1 = Checkbutton(self, text="Estimer grâce à la formule", variable=self.formule_checked)
+        self.c2 = Checkbutton(self, text="Estimer grâce à l'IA (non entraînée)", variable=self.ia_checked)
+        self.c1.grid(column=2, row=5, sticky='w', pady=20)
+        self.c2.grid(column=2, row=6, sticky='w')
+
         # progressbar
         self.progressbar = Progressbar(
             self,
@@ -97,18 +105,18 @@ class Application(Frame):
         )
 
         # place the progressbar
-        self.progressbar.grid(column=0, row=5, columnspan=8, padx=10, pady=20)
+        self.progressbar.grid(column=0, row=7, columnspan=8, padx=10, pady=20)
 
         # label
         self.value_label = Label(self, text="Current Progress: 0 %")
-        self.value_label.grid(column=0, row=5, columnspan=2)
+        self.value_label.grid(column=0, row=7, columnspan=2)
 
         # Bouton génération des prix
-        Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=6, columnspan=8, pady=20)
+        Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=0, row=8, columnspan=8, pady=20)
 
         # Bouton ouvrir l'excel
         self.open_excel_button = Button(self, text="Ouvrir l'excel", command=self.ouvrir_excel)
-        self.open_excel_button.grid(column=0, row=7, columnspan=8, pady=20)
+        self.open_excel_button.grid(column=0, row=9, columnspan=8, pady=20)
 
     def import_file(self):
         # Ouvrir une fenêtre de dialogue pour choisir le fichier
@@ -220,9 +228,11 @@ class Application(Frame):
     def export_to_pdf(self):
         self.sauvegarder_valeurs()
         ids = []
-        prices = []
         market_prices = []
-        pourcentages = []
+        prices_formule = []
+        pourcentages_formule = []
+        prices_ia = []
+        pourcentages_ia = []
 
         folder_selected = filedialog.askdirectory()
         if folder_selected:
@@ -261,21 +271,32 @@ class Application(Frame):
                     annee_achat=self.date_codes[index],
                     etat_fabrication=fabrication_state
                 )
-                estimated_price = calculer_prix_vente_estime(component, self.sections)
+                if self.formule_checked.get() == 1:
+                    estimated_price_formule = calculer_prix_vente_estime(component, self.sections)
+                    prices_formule.append(estimated_price_formule)
+                    pourcentages_formule.append(
+                        f"{(estimated_price_formule - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+
+                if self.ia_checked.get() == 1:
+                    estimated_price_ia = 0
+                    prices_ia.append(estimated_price_ia)
+                    pourcentages_ia.append(
+                        f"{(estimated_price_ia - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+
                 ids.append(component.id)
-                prices.append(estimated_price)
                 market_prices.append(component.prix_moyen_marche)
-                pourcentages.append(
-                    f"{(estimated_price - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
 
                 self.progress()
 
             data = {'REFS': ids,
-                    'PRIX ESTIMES (en $)': prices,
                     'PRIX MARCHE (en $)': market_prices,
-                    'DIFFERENCE (en %)': pourcentages
                     }
-
+            if self.formule_checked.get() == 1:
+                data['PRIX ESTIMES VIA FORMULE(en $)'] = prices_formule
+                data['DIFFERENCE (en %) FORMULE'] = pourcentages_formule
+            if self.ia_checked.get() == 1:
+                data['PRIX ESTIMES VIA IA(en $)'] = prices_ia
+                data['DIFFERENCE (en %) IA'] = pourcentages_ia
             df = pd.DataFrame(data)
 
             self.file_path_export = f'{folder_selected}/export_prices.xlsx'
