@@ -8,13 +8,10 @@ import digikey
 from digikey.v3.batchproductdetails import BatchProductDetailsRequest
 from digikey.v3.productinformation import ManufacturerProductDetailsRequest
 import logging
+from dotenv import load_dotenv
 
 
-os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
-os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
-os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
-os.environ['DIGIKEY_STORAGE_PATH'] = "./cache"
-
+load_dotenv()
 # Only if BatchProductDetails endpoint is explicitly enabled
 # Search for Batch of Parts/Product
 logger = logging.getLogger(__name__)

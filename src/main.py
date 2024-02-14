@@ -6,6 +6,7 @@ from tkinter.ttk import *
 from datetime import datetime
 import re
 from playsound import playsound
+from dotenv import load_dotenv
 
 import pandas as pd
 
@@ -236,6 +237,10 @@ class Application(Frame):
 
             for mpn in self.mpn_ids:
                 index = self.mpn_ids.index(mpn)
+
+                print("------------------------------------------------------")
+                print(f"Traitement du composant {index+1}/{len(self.mpn_ids)}")
+
                 result = self.search_engine_service.search_by_mpn(mpn=mpn, quantity=self.quantity[index])
                 with open(filename, "r+") as file:
                     data = json.load(file)
@@ -264,8 +269,6 @@ class Application(Frame):
                     f"{(estimated_price - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
 
                 self.progress()
-                print("------------------------------------------------------")
-                print(f"Traitement du composant {index}/{len(self.mpn_ids)}")
 
             data = {'REFS': ids,
                     'PRIX ESTIMES (en $)': prices,

@@ -7,6 +7,7 @@ import json
 import os
 from digikey.v3.productinformation import ManufacturerProductDetailsRequest
 import logging
+from dotenv import load_dotenv
 
 
 class SearchMpnResult:
@@ -30,16 +31,13 @@ class SearchMpnResult:
 
 class SearchEngineService:
     def __init__(self):
-        os.environ['DIGIKEY_CLIENT_ID'] = 'uFbyuoadeIp6BG1MDP5xVxZaYLgweyBL'
-        os.environ['DIGIKEY_CLIENT_SECRET'] = 'CmNER7ConcrSIfLE'
-        os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
-        os.environ['DIGIKEY_STORAGE_PATH'] = "./cache"
+        load_dotenv()
 
         logger = logging.getLogger(__name__)
         # logger.setLevel(logging.DEBUG)
 
         digikey_logger = logging.getLogger('digikey')
-        # @digikey_logger.setLevel(logging.DEBUG)
+        # digikey_logger.setLevel(logging.DEBUG)
 
         handler = logging.StreamHandler()
         # handler.setLevel(logging.DEBUG)
@@ -84,7 +82,7 @@ class SearchEngineService:
         octopart_result = self.search_by_mpn_octopart(mpn, quantity)
         digikey_result = self.search_by_mpn_digikey(mpn, quantity)
 
-        # print(f"For mpn: {mpn},\n - octopart: {octopart_result},\n - digikey: {digikey_result}")
+        print(f"For mpn: {mpn},\n - octopart: {octopart_result},\n - digikey: {digikey_result}")
 
         if octopart_result is None and digikey_result is None:
             print("For each digikey and octopart, no result found")
@@ -151,8 +149,8 @@ class SearchEngineService:
 
     def search_by_mpn_octopart(self, mpn, quantity) -> Optional[SearchMpnResult]:
         # print("searching by mpn for octopart : ", mpn)
-        octopart_bearer_token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDc4MjY0ODYsImV4cCI6MTcwNzkxMjg4NiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiIwMGI1MjJiYS1iNTA1LTQxYzEtOGJhOC02ZDljYzgyNDQ1NWEiLCJzdWIiOiJGODY3NzFGQS00Qjg0LTRDNDEtOUNFMi1GQUQwQjM5QTEyOUEiLCJhdXRoX3RpbWUiOjE3MDc4MjYzNzAsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiI3ZGQwMWMxNi1hNzQ4LTQ0MWEtOGFiYS1kY2FiZjE4MzZjZjIiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJRQUdiNXZKV3RrdUltcVlVYm9NRy9mNmFzSDROaDM2cG0rUmtmeFVKZDR3PSIsImp0aSI6IjcwRUQ2NkQ5N0ZCQzkyNTRGQkREOTJFMTJDNUJFMzM1Iiwic2lkIjoiODE5NDFCQkJFOTAxRTk5NjQzNzA1MjkxRTEwMTg3QjAiLCJpYXQiOjE3MDc4MjY0ODYsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.KTR0CgB96iMfE54TZEuSTkZtScniGsFUhGJho6KiO2m_t39yPqASCeW4QDmyTB9FyqTXzZM2DwRpz7O18H1YcpOWBxETZ7Am5bQQompWUJYo9E_rvWAdauHA5wc9pkB1tW1blGxZboy1HpGrpMbzvsFpupvQGE8ATjwsumv52VRcmD991riw44SuilbeM4Z5ECDa8Kcbiy8M5V0uFps3XfkrB1HPvl4O0MHyaqh5amrhS0E5E2UOgtqtsFV75GaYtQiyp91pFgOEfV0htPK1VlCijK2rmfLX3AUtlsfIuO4gsz20xJaNtVz_BIlWeBqKKr-wigSywgStFsjz3QlCOg"
-        octopart_api_url = "https://api.nexar.com/graphql"
+        octopart_bearer_token = os.getenv("OCTOPART_BEARER_TOKEN")
+        octopart_api_url = os.getenv("OCTOPART_API_URL")
         octopart_headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {octopart_bearer_token}"

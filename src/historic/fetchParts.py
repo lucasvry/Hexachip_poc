@@ -1,7 +1,11 @@
+import os
+
 import requests
 import json
 from datetime import datetime
+from dotenv import load_dotenv
 
+load_dotenv()
 # Initialize variables
 parts_ids = [
     "RFWD312.5CCLT-32.768KHz",
@@ -9,11 +13,11 @@ parts_ids = [
 not_found_part_ids = []
 invalid_response_part_ids = []
 
-API_URL = "https://api.nexar.com/graphql"
-BEARER_TOKEN_OCTOPART = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDc4MjY0ODYsImV4cCI6MTcwNzkxMjg4NiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiIwMGI1MjJiYS1iNTA1LTQxYzEtOGJhOC02ZDljYzgyNDQ1NWEiLCJzdWIiOiJGODY3NzFGQS00Qjg0LTRDNDEtOUNFMi1GQUQwQjM5QTEyOUEiLCJhdXRoX3RpbWUiOjE3MDc4MjYzNzAsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiI3ZGQwMWMxNi1hNzQ4LTQ0MWEtOGFiYS1kY2FiZjE4MzZjZjIiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJRQUdiNXZKV3RrdUltcVlVYm9NRy9mNmFzSDROaDM2cG0rUmtmeFVKZDR3PSIsImp0aSI6IjcwRUQ2NkQ5N0ZCQzkyNTRGQkREOTJFMTJDNUJFMzM1Iiwic2lkIjoiODE5NDFCQkJFOTAxRTk5NjQzNzA1MjkxRTEwMTg3QjAiLCJpYXQiOjE3MDc4MjY0ODYsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.KTR0CgB96iMfE54TZEuSTkZtScniGsFUhGJho6KiO2m_t39yPqASCeW4QDmyTB9FyqTXzZM2DwRpz7O18H1YcpOWBxETZ7Am5bQQompWUJYo9E_rvWAdauHA5wc9pkB1tW1blGxZboy1HpGrpMbzvsFpupvQGE8ATjwsumv52VRcmD991riw44SuilbeM4Z5ECDa8Kcbiy8M5V0uFps3XfkrB1HPvl4O0MHyaqh5amrhS0E5E2UOgtqtsFV75GaYtQiyp91pFgOEfV0htPK1VlCijK2rmfLX3AUtlsfIuO4gsz20xJaNtVz_BIlWeBqKKr-wigSywgStFsjz3QlCOg"
+api_url = os.getenv("OCTOPART_API_URL")
+octopart_bearer_token = os.getenv("OCTOPART_BEARER_TOKEN")
 headers = {
     "Content-Type": "application/json",
-    "Authorization": f"Bearer {BEARER_TOKEN_OCTOPART}"}
+    "Authorization": f"Bearer {octopart_bearer_token }"}
 
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 filename = f"./output/results_octopart_{timestamp}.json"
@@ -54,7 +58,7 @@ for part_id in parts_ids:
     }
 
     try:
-        response = requests.post(API_URL, headers=headers, json=query)
+        response = requests.post(api_url, headers=headers, json=query)
         response.raise_for_status()
 
         data = response.json()
