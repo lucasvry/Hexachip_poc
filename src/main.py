@@ -113,6 +113,7 @@ class Application(Frame):
         self.sections: [(str, [int])] = []
         self._create_gui()
         self.quantity = []
+        self.is_execution_done = False
 
     components = test.components
 
@@ -129,7 +130,8 @@ class Application(Frame):
             for tuple in jsonLoaded:
                 self.sections.append((tuple["state"], tuple["values"]))
 
-        Label(self, text="Valorisation des composants", font=("Arial", 20), anchor="center").grid(column=0, row=0, columnspan=8, pady=10)
+        Label(self, text="Valorisation des composants", font=("Arial", 20), anchor="center").grid(column=0, row=0,
+                                                                                                  columnspan=8, pady=10)
         Label(self, text="1. Sélectionner un CSV", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
         # Bouton import fichier excel
         Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=2, columnspan=7,
@@ -155,14 +157,6 @@ class Application(Frame):
         self.c1.grid(column=0, row=7, sticky='w', padx=20, pady=20)
         self.c2.grid(column=0, row=8, sticky='w', padx=20)
 
-        # progressbar
-        self.progressbar = Progressbar(
-            self,
-            orient='horizontal',
-            mode='determinate',
-            length=280,
-        )
-
         # Bouton génération des prix
         Button(self, text="Générer les prix", command=self.export_to_pdf).grid(column=2, row=9, columnspan=2, pady=10)
 
@@ -171,11 +165,15 @@ class Application(Frame):
         self.open_excel_button.grid(column=2, row=10, columnspan=2, pady=0)
         self.open_excel_button.config(state=DISABLED)
 
-        self.value_label = Label(self, text="Current Progress: 0 %")
-        self.value_label.grid(column=0, row=11, columnspan=2)
+        self.value_label = Label(self, text="Composants traités: ?/?")
 
-        # place the progressbar
-        self.progressbar.grid(column=0, row=11, columnspan=8, padx=10, pady=20)
+        # progressbar
+        self.progressbar = Progressbar(
+            self,
+            orient='horizontal',
+            mode='determinate',
+            length=280,
+        )
 
     def import_file(self):
         fichier = filedialog.askopenfilename(filetypes=[("Excel files", ".xlsx .xls .csv")])
@@ -301,6 +299,10 @@ class Application(Frame):
         prices_ia = []
         pourcentages_ia = []
 
+        self.value_label.grid(column=0, row=11, columnspan=2)
+        # place the progressbar
+        self.progressbar.grid(column=0, row=11, columnspan=8, padx=10, pady=20)
+
         self.open_excel_button.config(state=DISABLED)
 
         folder_selected = filedialog.askdirectory()
@@ -328,7 +330,7 @@ class Application(Frame):
                     json.dump(data, file, indent=4)
 
                 if result.market_price is None or result.stock is None or result.market_price == 0 or result.stock == 0:
-                    self.progress()
+                    self.progress(index + 1)
                     continue
 
                 fabrication_state: State = State.OBSOLETE if result.is_obsolete else State.FABRICATION
@@ -355,7 +357,7 @@ class Application(Frame):
                 ids.append(component.id)
                 market_prices.append(component.prix_moyen_marche)
 
-                self.progress()
+                self.progress(index + 1)
 
             data = {'REFS': ids,
                     'PRIX MARCHE (en $)': market_prices,
@@ -372,17 +374,20 @@ class Application(Frame):
             df.to_excel(self.file_path_export, index=False)
             print(f'Fichier enregistré avec succès à : {self.file_path_export}')
             self.open_excel_button.config(state=NORMAL)
+            self.is_execution_done = True
         else:
             print('Aucun dossier sélectionné. Annulation de l\'enregistrement.')
 
-
-    def progress(self):
+    def progress(self, index):
+        if self.is_execution_done == True:
+            self.current_process = 0
+            self.is_execution_done = False
         if self.current_process < 100:
-            print("increase progress")
             self.current_process += 100 / len(self.mpn_ids)
             self.progressbar['value'] = self.current_process
-            self.value_label.config(text=f"Current Progress: {round(self.current_process)} %")
-            self.update_idletasks()  # Mettre à jour l'interface utilisateur après chaque itération
+            print("debug", self.current_process)
+            self.value_label.config(text=f"Composants traités: {index}/{len(self.mpn_ids)}")
+            self.update_idletasks()
         if self.current_process == 100:
             print(os.path.abspath("./sounds/msn.mp3"))
             playsound(os.path.abspath("./sounds/msn.mp3"))
@@ -397,7 +402,7 @@ def main():
     app = Tk()
     photo = PhotoImage(file="./assets/hexa.png")
     app.iconphoto(False, photo)
-    #app.geometry("900x800")
+    # app.geometry("900x800")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
