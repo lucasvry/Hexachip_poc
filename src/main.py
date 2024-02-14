@@ -35,8 +35,8 @@ class ProductSection(Frame):
 
     def _create_label_and_entry(self, label_text, row):
         label = Label(self, text=label_text)
-        label.grid(column=0, row=row, pady=5)
-        champ = Entry(self, validate="key", width=5)
+        label.grid(column=0, row=row, pady=5, sticky="w")
+        champ = Entry(self, validate="key", width=6)
         champ.insert(0, self.default_values[row - 2])
         champ.grid(column=1, row=row, padx=15, pady=5)
         percentage = Label(self, text="%")
@@ -84,7 +84,7 @@ class Application(Frame):
         Label(self, text="Valorisation des composants", font=("Arial", 20)).grid(column=0, row=0, columnspan=8, pady=10)
         Label(self, text="1. Sélectionner un CSV", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
         # Bouton import fichier excel
-        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=2, row=2, pady=10)
+        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=2, columnspan=7, pady=10)
 
         self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
         self.filePathLabel.grid(column=0, row=3, columnspan=7, pady=10)
