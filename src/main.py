@@ -16,6 +16,51 @@ from src.test import test
 from src.utils.formule import State, calculer_prix_vente_estime, Component
 
 
+class ModalWindow(Toplevel):
+    def __init__(self, master):
+        super().__init__(master)
+        self.title("Configuration")
+        self.geometry("300x250")
+        self.grab_set()
+
+        # Get .env default value
+        octopart_token_default = os.getenv("OCTOPART_BEARER_TOKEN", "")
+        digikey_id_default = os.getenv("DIGIKEY_CLIENT_ID", "")
+        digikey_secret_default = os.getenv("DIGIKEY_CLIENT_SECRET", "")
+
+        Label(self, text="Octopart bearer token:").pack(pady=5)
+        self.octopart_token_entry = Entry(self)
+        self.octopart_token_entry.insert(0, octopart_token_default)
+        self.octopart_token_entry.pack(pady=5)
+
+        Label(self, text="Digikey client id:").pack(pady=5)
+        self.digikey_id_entry = Entry(self)
+        self.digikey_id_entry.insert(0, digikey_id_default)
+        self.digikey_id_entry.pack(pady=5)
+
+        Label(self, text="Digikey client secret:").pack(pady=5)
+        self.digikey_secret_entry = Entry(self)
+        self.digikey_secret_entry.insert(0, digikey_secret_default)
+        self.digikey_secret_entry.pack(pady=5)
+
+        Button(self, text="Valider", command=self.save_and_close).pack(pady=10)
+
+    def save_and_close(self):
+        octopart_token = self.octopart_token_entry.get()
+        digikey_id = self.digikey_id_entry.get()
+        digikey_secret = self.digikey_secret_entry.get()
+
+        len(octopart_token) == 0 and messagebox.showerror("Erreur", "Le token Octopart ne peut pas être vide")
+        len(digikey_id) == 0 and messagebox.showerror("Erreur", "L'identifiant Digikey ne peut pas être vide")
+        len(digikey_secret) == 0 and messagebox.showerror("Erreur", "Le secret Digikey ne peut pas être vide")
+
+        if len(octopart_token) > 0 and len(digikey_id) > 0 and len(digikey_secret) > 0:
+            os.environ['OCTOPART_BEARER_TOKEN'] = octopart_token
+            os.environ['DIGIKEY_CLIENT_ID'] = digikey_id
+            os.environ['DIGIKEY_CLIENT_SECRET'] = digikey_secret
+            self.destroy()
+
+
 class ProductSection(Frame):
     def __init__(self, master, title, default_values):
         super().__init__(master)
@@ -55,6 +100,7 @@ class ProductSection(Frame):
     def open_modal(self):
         pass
 
+
 class Application(Frame):
 
     def __init__(self, root):
@@ -75,7 +121,13 @@ class Application(Frame):
 
     components = test.components
 
+    def open_modal(self):
+        modal = ModalWindow(self.master)
+        self.wait_window(modal)
+
     def _create_gui(self):
+        Button(self, text="Configurer les API", command=self.open_modal).grid(column=0, row=12, pady=10)
+
         default_values = f"./cache/default_values.json"
         with open(default_values, "r") as file:
             jsonLoaded = json.loads(file.read())
@@ -85,12 +137,14 @@ class Application(Frame):
         Label(self, text="Valorisation des composants", font=("Arial", 20)).grid(column=0, row=0, columnspan=8, pady=10)
         Label(self, text="1. Sélectionner un CSV", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
         # Bouton import fichier excel
-        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=2, columnspan=7, pady=10)
+        Button(self, text="Importer un fichier CSV", command=self.import_file).grid(column=0, row=2, columnspan=7,
+                                                                                    pady=10)
 
         self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
         self.filePathLabel.grid(column=0, row=3, columnspan=7, pady=10)
 
-        Label(self, text="2. Définir les paramètres", font=("Arial", 15)).grid(column=0, row=4, pady=5, padx=0, sticky='w')
+        Label(self, text="2. Définir les paramètres", font=("Arial", 15)).grid(column=0, row=4, pady=5, padx=0,
+                                                                               sticky='w')
         for i, (title, default_values) in enumerate(self.sections):
             section = ProductSection(self, title, default_values)
             section.grid(column=i * 2, row=5)
@@ -98,7 +152,8 @@ class Application(Frame):
         self.formule_checked = IntVar(value=1)
         self.ia_checked = IntVar(value=0)
 
-        Label(self, text="3. Choisir le mode de traitement", font=("Arial", 15)).grid(column=0, row=6, pady=15, sticky='w')
+        Label(self, text="3. Choisir le mode de traitement", font=("Arial", 15)).grid(column=0, row=6, pady=15,
+                                                                                      sticky='w')
 
         self.c1 = Checkbutton(self, text="Estimer grâce à la formule", variable=self.formule_checked)
         self.c2 = Checkbutton(self, text="Estimer grâce à l'IA (non entraînée)", variable=self.ia_checked)
@@ -126,7 +181,6 @@ class Application(Frame):
 
         # place the progressbar
         self.progressbar.grid(column=0, row=11, columnspan=8, padx=10, pady=20)
-
 
     def import_file(self):
         # Ouvrir une fenêtre de dialogue pour choisir le fichier
@@ -270,7 +324,7 @@ class Application(Frame):
                 index = self.mpn_ids.index(mpn)
 
                 print("------------------------------------------------------")
-                print(f"Traitement du composant {index+1}/{len(self.mpn_ids)}")
+                print(f"Traitement du composant {index + 1}/{len(self.mpn_ids)}")
 
                 result = self.search_engine_service.search_by_mpn(mpn=mpn, quantity=self.quantity[index])
                 with open(filename, "r+") as file:
@@ -347,9 +401,9 @@ class Application(Frame):
 
 def main():
     app = Tk()
-    app.geometry("900x750")
     photo = PhotoImage(file="./assets/hexa.png")
     app.iconphoto(False, photo)
+    app.geometry("900x800")
     app.resizable(0, 0)
     app.title("Hexachip Simulation")
     Application(app)
