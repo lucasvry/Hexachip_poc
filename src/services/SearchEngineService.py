@@ -79,6 +79,7 @@ class SearchEngineService:
         return closest_price
 
     def search_by_mpn(self, mpn, quantity) -> SearchMpnResult:
+        load_dotenv()
         octopart_result = self.search_by_mpn_octopart(mpn, quantity)
         digikey_result = self.search_by_mpn_digikey(mpn, quantity)
 
@@ -115,7 +116,8 @@ class SearchEngineService:
                 stock = digikey_result.stock
             else:
                 # If stock in both, using the average
-                stock = (digikey_result.stock + octopart_result.stock) // 2
+
+                stock = octopart_result.stock
 
         return SearchMpnResult(mpn=mpn, market_price=estimate_price, is_obsolete=is_obsolete, stock=stock)
 
@@ -197,7 +199,6 @@ class SearchEngineService:
             if results is not None:
                 has_results = len(results) > 0
                 if has_results:
-                    stock = results[0].get("part", {}).get("totalAvail", 0)
                     median_price = results[0].get("part", {}).get("medianPrice1000", None)
                     if median_price is not None:
                         if median_price is not float:
@@ -213,9 +214,12 @@ class SearchEngineService:
                     if len(sellers_authorized) <= 0:
                         # print("no authorized sellers")
                         is_obsolete = True
+                        stock = results[0].get("part", {}).get("totalAvail", 0)
                     else:
                         # print("using authorized sellers")
                         sellers = sellers_authorized
+                        stock = sum([seller.get("offers", [])[0].get("inventoryLevel", 0) for seller in sellers])
+
                     all_prices = list(
                         chain.from_iterable([seller.get("offers", [])[0].get("prices", []) for seller in sellers]))
 
