@@ -339,7 +339,7 @@ class Application(Frame):
                     file.seek(0)
                     json.dump(data, file, indent=4)
 
-                if result.market_price is None or result.stock is None or result.market_price == 0 or result.stock == 0:
+                if result.market_price is None or result.stock is None or result.market_price == 0:
                     self.progress(index + 1)
                     continue
 
