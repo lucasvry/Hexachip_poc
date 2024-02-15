@@ -13,8 +13,7 @@ import threading
 import pandas as pd
 
 from services.SearchEngineService import SearchEngineService
-from src.test import test
-from src.utils.formule import State, calculer_prix_vente_estime, Component
+from utils.formule import State, calculer_prix_vente_estime, Component
 
 
 class ModalWindow(Toplevel):
@@ -124,8 +123,6 @@ class Application(Frame):
         self.quantity = []
         self.is_execution_done = False
 
-    components = test.components
-
     def open_modal(self):
         modal = ModalWindow(self.master)
         self.wait_window(modal)
@@ -141,10 +138,10 @@ class Application(Frame):
 
         Label(self, text="Valorisation des composants", font=("Arial", 20), anchor="center").grid(column=0, row=0,
                                                                                                   columnspan=8, pady=10)
-        Label(self, text="1. Sélectionner un fichier (csv, xls, xlsx)", font=("Arial", 15)).grid(column=0, row=1, pady=5, sticky='w')
-        # Bouton import fichier excel
+        Label(self, text="1. Sélectionner un fichier (csv, xls, xlsx)", font=("Arial", 15)).grid(column=0, row=1,
+                                                                                                 pady=5, sticky='w')
         Button(self, text="Importer un fichier", command=self.import_file).grid(column=0, row=2, columnspan=7,
-                                                                                    pady=10)
+                                                                                pady=10)
 
         self.filePathLabel = Label(self, text="Aucun fichier sélectionné")
         self.filePathLabel.grid(column=0, row=3, columnspan=7, pady=10)
@@ -309,6 +306,10 @@ class Application(Frame):
         prices_ia = []
         pourcentages_ia = []
 
+        if self.formule_checked.get() == 1 and sum([sum(default_values) for (title, default_values) in self.sections]) != 300:
+            messagebox.showerror("Erreur", "La somme des pourcentages doit être égale à 100% dans chaque catégorie.")
+            return
+
         self.value_label.grid(column=0, row=11, columnspan=2)
         # place the progressbar
         self.progressbar.grid(column=0, row=11, columnspan=8, padx=10, pady=20)
@@ -329,13 +330,11 @@ class Application(Frame):
             for mpn in self.mpn_ids:
                 index = self.mpn_ids.index(mpn)
 
-                objectScrapped = octopartScrapperService.getDataByRef(mpn,False)
+                objectScrapped = octopartScrapperService.getDataByRef(mpn, True)
                 if objectScrapped.responseStatut != scrapper.ResponseStatut.RefFounded:
                     self.progress(index + 1)
                     continue
                 variation = objectScrapped.stockVariation / 100
-
-
 
                 print("------------------------------------------------------")
                 print(f"Traitement du composant {index + 1}/{len(self.mpn_ids)}")
@@ -353,17 +352,17 @@ class Application(Frame):
 
                 fabrication_state: State = State.FABRICATION
 
-                if(objectScrapped.status == scrapper.Statut.PRODUCTION):
+                if objectScrapped.status == scrapper.Statut.PRODUCTION:
                     fabrication_state = State.FABRICATION
-                if (objectScrapped.status == scrapper.Statut.NRND):
+                if objectScrapped.status == scrapper.Statut.NRND:
                     fabrication_state = State.NRND
-                if (objectScrapped.status == scrapper.Statut.OBSOLETE):
-                        fabrication_state = State.OBSOLETE
-                if( objectScrapped.status == scrapper.Statut.INCONNU and objectScrapped.isOnlyBroker == False):
-                    fabrication_state = State.FABRICATION
-                elif (scrapper.Statut.INCONNU and objectScrapped.isOnlyBroker):
+                if objectScrapped.status == scrapper.Statut.OBSOLETE:
                     fabrication_state = State.OBSOLETE
-                    
+                if objectScrapped.status == scrapper.Statut.INCONNU and objectScrapped.isOnlyBroker == False:
+                    fabrication_state = State.FABRICATION
+                elif scrapper.Statut.INCONNU and objectScrapped.isOnlyBroker:
+                    fabrication_state = State.OBSOLETE
+
                 component = Component(
                     id=result.mpn,
                     prix_moyen_marche=result.market_price if result.market_price else 0,
