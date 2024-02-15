@@ -329,7 +329,7 @@ class Application(Frame):
             for mpn in self.mpn_ids:
                 index = self.mpn_ids.index(mpn)
 
-                objectScrapped = octopartScrapperService.getDataByRef(mpn,True)
+                objectScrapped = octopartScrapperService.getDataByRef(mpn,False)
                 if objectScrapped.responseStatut != scrapper.ResponseStatut.RefFounded:
                     self.progress(index + 1)
                     continue
@@ -351,7 +351,19 @@ class Application(Frame):
                     self.progress(index + 1)
                     continue
 
-                fabrication_state: State = State.OBSOLETE if result.is_obsolete else State.FABRICATION
+                fabrication_state: State = State.FABRICATION
+
+                if(objectScrapped.status == scrapper.Statut.PRODUCTION):
+                    fabrication_state = State.FABRICATION
+                if (objectScrapped.status == scrapper.Statut.NRND):
+                    fabrication_state = State.NRND
+                if (objectScrapped.status == scrapper.Statut.OBSOLETE):
+                        fabrication_state = State.OBSOLETE
+                if( objectScrapped.status == scrapper.Statut.INCONNU and objectScrapped.isOnlyBroker == False):
+                    fabrication_state = State.FABRICATION
+                elif (scrapper.Statut.INCONNU and objectScrapped.isOnlyBroker):
+                    fabrication_state = State.OBSOLETE
+                    
                 component = Component(
                     id=result.mpn,
                     prix_moyen_marche=result.market_price if result.market_price else 0,
