@@ -59,6 +59,14 @@ class ModalWindow(Toplevel):
             os.environ['OCTOPART_BEARER_TOKEN'] = octopart_token
             os.environ['DIGIKEY_CLIENT_ID'] = digikey_id
             os.environ['DIGIKEY_CLIENT_SECRET'] = digikey_secret
+            # update the .env
+            with open("../.env", "w") as file:
+                file.write(f"DIGIKEY_CLIENT_ID={digikey_id}\n")
+                file.write(f"DIGIKEY_CLIENT_SECRET={digikey_secret}\n")
+                file.write(f"DIGIKEY_CLIENT_SANDBOX={os.getenv('DIGIKEY_CLIENT_SANDBOX', 'False')}\n")
+                file.write(f"DIGIKEY_STORAGE_PATH={os.getenv('DIGIKEY_STORAGE_PATH', './cache')}\n")
+                file.write(f"OCTOPART_BEARER_TOKEN={octopart_token}\n")
+                file.write(f"OCTOPART_API_URL={os.getenv('OCTOPART_API_URL', 'https://api.nexar.com/graphql')}\n")
             self.destroy()
 
 
