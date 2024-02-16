@@ -15,18 +15,21 @@ import pandas as pd
 from services.SearchEngineService import SearchEngineService
 from utils.formule import State, calculer_prix_vente_estime, Component
 
+from utils.ai import Ai
+
 
 class ModalWindow(Toplevel):
     def __init__(self, master):
         super().__init__(master)
         self.title("Configuration")
-        self.geometry("300x250")
+        self.geometry("300x350")
         self.grab_set()
 
         # Get .env default value
         octopart_token_default = os.getenv("OCTOPART_BEARER_TOKEN", "")
         digikey_id_default = os.getenv("DIGIKEY_CLIENT_ID", "")
         digikey_secret_default = os.getenv("DIGIKEY_CLIENT_SECRET", "")
+        ai_model_default = os.getenv("AI_MODEL_PATH", "")
 
         Label(self, text="Octopart bearer token:").pack(pady=5)
         self.octopart_token_entry = Entry(self)
@@ -43,16 +46,26 @@ class ModalWindow(Toplevel):
         self.digikey_secret_entry.insert(0, digikey_secret_default)
         self.digikey_secret_entry.pack(pady=5)
 
+        Label(self, text="Chemin vers le modèle d'IA").pack(pady=5)
+        self.ai_model_entry = Entry(self)
+        self.ai_model_entry.insert(0, ai_model_default)
+        self.ai_model_entry.pack(pady=5)
+
         Button(self, text="Valider", command=self.save_and_close).pack(pady=10)
 
     def save_and_close(self):
         octopart_token = self.octopart_token_entry.get()
         digikey_id = self.digikey_id_entry.get()
         digikey_secret = self.digikey_secret_entry.get()
+        ai_model_path = self.ai_model_entry.get()
 
         len(octopart_token) == 0 and messagebox.showerror("Erreur", "Le token Octopart ne peut pas être vide")
         len(digikey_id) == 0 and messagebox.showerror("Erreur", "L'identifiant Digikey ne peut pas être vide")
         len(digikey_secret) == 0 and messagebox.showerror("Erreur", "Le secret Digikey ne peut pas être vide")
+
+
+        if len(ai_model_path) > 0:
+            os.environ['AI_MODEL_PATH'] = ai_model_path
 
         if len(octopart_token) > 0 and len(digikey_id) > 0 and len(digikey_secret) > 0:
             os.environ['OCTOPART_BEARER_TOKEN'] = octopart_token
@@ -66,6 +79,7 @@ class ModalWindow(Toplevel):
                 file.write(f"DIGIKEY_STORAGE_PATH={os.getenv('DIGIKEY_STORAGE_PATH', './cache')}\n")
                 file.write(f"OCTOPART_BEARER_TOKEN={octopart_token}\n")
                 file.write(f"OCTOPART_API_URL={os.getenv('OCTOPART_API_URL', 'https://api.nexar.com/graphql')}\n")
+                file.write(f"AI_MODEL_PATH={ai_model_path}\n")
             self.destroy()
 
 
@@ -188,6 +202,7 @@ class Application(Frame):
             self.filePathLabel.config(text=self.file_path)
             self.import_excel = pd.read_excel(fichier)
             self.date_codes = self.get_date_codes()
+            self.date_codes_non_traited = self.get_date_codes(False)
             self.mpn_ids = self.get_mpn_ids()
             self.quantity = self.get_quantity()
 
@@ -213,14 +228,17 @@ class Application(Frame):
         except Exception:
             messagebox.showerror('IDS', "La colonne des réf doit être nommée 'MPN'")
 
-    def get_date_codes(self):
+    def get_date_codes(self, transform_chaine = True):
         try:
             # Sélectionner les colonnes spécifiées dans la variable result
             columns_to_select = ["DATE_CODE"]
             result = self.import_excel[columns_to_select]
             flat_list = []
             for sublist in result.values:
-                flat_list.append(self.transformer_chaine(sublist[0]))
+                if (transform_chaine):
+                    flat_list.append(self.transformer_chaine(sublist[0]))
+                else:
+                    flat_list.append(sublist[0])
             return flat_list
         except Exception:
             messagebox.showerror('DATE_CODE', "La colonne des dates doit être nommée 'DATE_CODE'")
@@ -306,6 +324,8 @@ class Application(Frame):
         prices_ia = []
         pourcentages_ia = []
 
+        ai = Ai(os.getenv("AI_MODEL_PATH"))
+
         if self.formule_checked.get() == 1 and sum([sum(default_values) for (title, default_values) in self.sections]) != 300:
             messagebox.showerror("Erreur", "La somme des pourcentages doit être égale à 100% dans chaque catégorie.")
             return
@@ -330,7 +350,7 @@ class Application(Frame):
             for mpn in self.mpn_ids:
                 index = self.mpn_ids.index(mpn)
 
-                objectScrapped = octopartScrapperService.getDataByRef(mpn, True)
+                objectScrapped = octopartScrapperService.getDataByRef(mpn)
                 if objectScrapped.responseStatut != scrapper.ResponseStatut.RefFounded:
                     self.progress(index + 1)
                     continue
@@ -366,10 +386,13 @@ class Application(Frame):
                 component = Component(
                     id=result.mpn,
                     prix_moyen_marche=result.market_price if result.market_price else 0,
+                    etat_fabrication=fabrication_state,
                     variation_stock=variation,
                     stock_mondial=result.stock if result.stock else 0,
                     annee_achat=self.date_codes[index],
-                    etat_fabrication=fabrication_state
+                    date_codes= self.date_codes_non_traited[index],
+                    vendor_stock= self.quantity[index],
+                    brut_scrapped_result=objectScrapped
                 )
                 if self.formule_checked.get() == 1:
                     estimated_price_formule = calculer_prix_vente_estime(component, self.sections)
@@ -378,16 +401,16 @@ class Application(Frame):
                         f"{(estimated_price_formule - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
 
                 if self.ia_checked.get() == 1:
-                    estimated_price_ia = 0
-                    prices_ia.append(estimated_price_ia)
-                    pourcentages_ia.append(
-                        f"{(estimated_price_ia - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+                    try:
+                        estimated_price_ia = ai.predict(component)
+                        prices_ia.append(estimated_price_ia)
+                        pourcentages_ia.append(
+                            f"{(estimated_price_ia - component.prix_moyen_marche) / component.prix_moyen_marche * 100:.2f}%")
+                        ids.append(component.id)
+                        market_prices.append(component.prix_moyen_marche)
 
-                ids.append(component.id)
-                market_prices.append(component.prix_moyen_marche)
-
-                self.progress(index + 1)
-
+                    finally:
+                        self.progress(index + 1)
             data = {'REFS': ids,
                     'PRIX MARCHE (en $)': market_prices,
                     }
@@ -419,7 +442,7 @@ class Application(Frame):
             self.update_idletasks()
         if self.current_process == 100:
             print(os.path.abspath("./sounds/msn.mp3"))
-            playsound(os.path.abspath("./sounds/msn.mp3"))
+            playsound(os.path.abspath("./sounds/Cash_sound.mp3"))
 
     def sauvegarder_valeurs(self):
         data_to_save = [{"state": title, "values": default_values} for (title, default_values) in self.sections]

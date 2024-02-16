@@ -1,6 +1,7 @@
 import math
 from enum import Enum
 
+from src.services.OctopartScrapperService import ScrapperResult
 
 def recuperer_liste_par_str(pourcentages, chaine_recherche):
     for elem in pourcentages:
@@ -16,13 +17,16 @@ class State(Enum):
 
 
 class Component:
-    def __init__(self, id, etat_fabrication, prix_moyen_marche, variation_stock, stock_mondial, annee_achat):
+    def __init__(self, id, etat_fabrication, prix_moyen_marche, variation_stock, stock_mondial, annee_achat,date_codes,vendor_stock, brut_scrapped_result):
         self.id = id
         self.etat_fabrication = etat_fabrication
         self.prix_moyen_marche = prix_moyen_marche
         self.variation_stock = variation_stock
         self.stock_mondial = stock_mondial
         self.annee_achat = annee_achat
+        self.date_codes = date_codes
+        self.vendor_stock = vendor_stock
+        self.brut_scrapped_result:ScrapperResult = brut_scrapped_result
 
 
 def reduction_annuelle(annee_achat):
